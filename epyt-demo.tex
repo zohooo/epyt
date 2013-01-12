@@ -1,0 +1,64 @@
+% !TEX program = xelatex
+
+\documentclass[14pt]{beamer}
+
+\usetheme{epyt}
+
+\hypersetup{
+  pdfpagemode={FullScreen},
+}
+
+\title{Epyt, a Simple but Nice Theme for Beamer}
+\author{https://github.com/zohooo/epyttheme}
+\date{January 12th, 2013}
+
+\begin{document}
+
+\begin{frame}[plain]\transboxout
+\titlepage
+\end{frame}
+
+\begin{frame}\transboxin
+\begin{center}
+\tableofcontents[hideallsubsections]
+\end{center}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+Epyt is a simple but nice theme for Beamer, with the following features: \pause
+\begin{itemize}[<+->]
+\item simple structure: with page numbers at footer, no head bar and side bar;
+\item simple templates: displaying theorems with traditional inline style;
+\item simple colors: using only three main colors - gray, yellow and white.
+\end{itemize}
+\end{frame}
+
+\section{Enumerates}
+
+\begin{frame}[fragile]{Ordered Lists}
+A Beamer theme consists of the following four parts: \pause
+\begin{enumerate}[<+->]
+\item outer theme, with \verb!\usebeameroutertheme!;
+\item inner theme, with \verb!\usebeamerinnertheme!;
+\item color theme, with \verb!\usebeamercolortheme!;
+\item font theme, with \verb!\usebeamerfonttheme!.
+\end{enumerate}
+\end{frame}
+
+\section{Mathmatics}
+
+\begin{frame}{Example}
+\begin{example}
+Prove the following result:
+\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=-\frac{3}{2} \]
+\end{example}\pause
+\begin{proof}
+Since $\sin 3x \sim 3x$ and $\ln(1-2x) \sim -2x$, we have
+\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=\lim_{x\to0}\frac{3x}{-2x}=-\frac{3}{2} \]
+\end{proof}
+\end{frame}
+
+
+\end{document}
