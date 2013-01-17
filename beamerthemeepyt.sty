@@ -20,6 +20,7 @@
 \setbeamercolor{structure}{fg=gray}
 \setbeamercolor{normal text}{bg=black, fg=white}
 \setbeamercolor{title}{fg=yellow}
+\setbeamercolor{subtitle}{fg=yellow!70!gray}
 \setbeamercolor{section in toc}{fg=yellow!90!gray}
 \setbeamercolor{subsection in toc}{fg=yellow!80!gray}
 \setbeamercolor{frametitle}{fg=yellow!70!gray}
@@ -30,7 +31,13 @@
 
 %% font theme
 
-\setbeamerfont{section in toc}{size=\large}
+\setbeamerfont{title}{size=\huge}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{date}{size=\large}
+\setbeamerfont{section in toc}{size=\Large}
+\setbeamerfont{subsection in toc}{size=\large}
 \setbeamerfont{frametitle}{size=\large}
 
 \usefonttheme{professionalfonts} % there is some problem with default math fonts
@@ -48,7 +55,7 @@
 \AtBeginSection[]{
 \begin{frame}
   \begin{center}
-    \large
+    \usebeamerfont{section in toc}
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide]
   \end{center}
 \end{frame}
@@ -56,9 +63,8 @@
 
 \AtBeginSubsection[]{
 \begin{frame}
-  \large
   \begin{beamercolorbox}[wd=\paperwidth,center]{subsection in toc}%
-  \insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
+  \usebeamerfont{subsection in toc}\insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
   \end{beamercolorbox}%
 \end{frame}
 }
@@ -87,7 +93,7 @@
 
 %% outer theme
 
-\setbeamertemplate{frametitle}{\noindent\insertframetitle\par}
+\setbeamertemplate{frametitle}{\noindent\usebeamerfont{frametitle}\insertframetitle\par}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
 {
