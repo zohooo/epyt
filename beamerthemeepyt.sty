@@ -24,6 +24,7 @@
 \setbeamercolor{title}{fg=yellow!90!gray}
 \setbeamercolor{section in toc}{fg=yellow!80!gray}
 \setbeamercolor{frametitle}{fg=yellow!70!gray}
+\setbeamercolor{footline}{fg=gray}
 
 %% some setting for templates
 
@@ -43,7 +44,19 @@
 
 \setbeamertemplate{frametitle}{\noindent\insertframetitle\par}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[page number]
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
+    \hspace*{1ex}\usebeamerfont{footline}\insertframenumber{}/\inserttotalframenumber
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
+    \usebeamerfont{footline}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
+    \usebeamerfont{footline}\vspace{-.5ex}\insertsectionnavigationsymbol\insertsubsectionnavigationsymbol\insertframenavigationsymbol\hspace*{1ex}
+  \end{beamercolorbox}}%
+}
 
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
