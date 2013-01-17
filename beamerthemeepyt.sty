@@ -7,17 +7,15 @@
 
 \mode<presentation>
 
-%% based on default themes
+%% default theme
 
 \usetheme{default}
-\useoutertheme{default}
 
-%% some setting for colors
+%% color theme
 
 \definecolor{midcol}{RGB}{32,32,32}
 \definecolor{botcol}{RGB}{64,64,64}
-\setbeamertemplate{background canvas}[vertical shading]
-[top=black, middle=midcol, bottom=botcol]
+\setbeamertemplate{background canvas}[vertical shading][top=black, middle=midcol, bottom=botcol]
 
 \setbeamercolor{structure}{fg=gray}
 \setbeamercolor{normal text}{bg=black, fg=white}
@@ -25,14 +23,27 @@
 \setbeamercolor{section in toc}{fg=yellow!90!gray}
 \setbeamercolor{subsection in toc}{fg=yellow!80!gray}
 \setbeamercolor{frametitle}{fg=yellow!70!gray}
+\setbeamercolor{theoremname}{fg=yellow!60!gray}
+\setbeamercolor{proofname}{fg=yellow!60!gray}
+
 \setbeamercolor{footline}{fg=gray}
 
-%% some setting for templates
+%% font theme
 
-\setbeamertemplate{frametitle}[default]
+\setbeamerfont{section in toc}{size=\large}
+\setbeamerfont{frametitle}{size=\large}
+
+\usefonttheme{professionalfonts} % there is some problem with default math fonts
+
+%% inner theme
+
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}{}
+
+% sections and subsections
 
 \AtBeginSection[]{
 \begin{frame}
@@ -52,6 +63,30 @@
 \end{frame}
 }
 
+% disable block style for theorems
+
+\setbeamertemplate{theorem begin}
+{%
+  \bfseries\upshape %\inserttheoremheadfont
+  {\usebeamercolor[fg]{theoremname}%
+  \inserttheoremname\inserttheoremnumber
+  \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+  \inserttheorempunctuation}\quad
+  \normalfont
+}
+\setbeamertemplate{theorem end}{}
+
+
+\setbeamertemplate{proof begin}
+{%
+  \bfseries {\usebeamercolor[fg]{proofname}%
+  \insertproofname}\quad
+  \normalfont
+}
+\setbeamertemplate{proof end}{}
+
+%% outer theme
+
 \setbeamertemplate{frametitle}{\noindent\insertframetitle\par}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
@@ -67,38 +102,5 @@
     \usebeamerfont{footline}\vspace{-.5ex}\insertsectionnavigationsymbol\insertsubsectionnavigationsymbol\insertframenavigationsymbol\hspace*{1ex}
   \end{beamercolorbox}}%
 }
-
-\setbeamertemplate{itemize items}[default]
-\setbeamertemplate{enumerate items}[default]
-
-%% some settings for fonts
-
-\setbeamerfont{section in toc}{size=\large}
-\setbeamerfont{frametitle}{size=\large}
-
-\usefonttheme{professionalfonts} % there is some problem with default math fonts
-
-%% disable block style for theorems
-
-\setbeamercolor{theoremname}{fg=yellow!60!gray}
-\setbeamertemplate{theorem begin}
-{%
-  \bfseries\upshape %\inserttheoremheadfont
-  {\usebeamercolor[fg]{theoremname}%\color{yellow!60!gray}%
-  \inserttheoremname\inserttheoremnumber
-  \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
-  \inserttheorempunctuation}\quad
-  \normalfont
-}
-\setbeamertemplate{theorem end}{}
-
-\setbeamercolor{proofname}{fg=yellow!60!gray}
-\setbeamertemplate{proof begin}
-{%
-  \bfseries {\usebeamercolor[fg]{proofname}%\color{yellow!60!gray}%
-  \insertproofname}\quad
-  \normalfont
-}
-\setbeamertemplate{proof end}{}
 
 \mode<all>
