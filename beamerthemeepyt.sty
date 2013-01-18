@@ -99,14 +99,15 @@
 {
   \hbox{%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
-    \hspace*{1ex}\usebeamerfont{footline}\insertframenumber{}/\inserttotalframenumber
+    \vspace{.5ex}\hspace*{1ex}\usebeamerfont{footline}\insertframenumber{}/\inserttotalframenumber
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
-    \usebeamerfont{footline}\insertshorttitle
+    \vspace{.5ex}\usebeamerfont{footline}\insertshorttitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
-    \usebeamerfont{footline}\vspace{-.5ex}\insertsectionnavigationsymbol\insertsubsectionnavigationsymbol\insertframenavigationsymbol\hspace*{1ex}
-  \end{beamercolorbox}}%
+    \usebeamerfont{footline}\insertsectionnavigationsymbol\insertsubsectionnavigationsymbol\insertframenavigationsymbol\hspace*{1ex}
+  \end{beamercolorbox}%
+  }%
 }
 
 \mode<all>
