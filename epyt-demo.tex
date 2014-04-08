@@ -2,7 +2,7 @@
 
 \documentclass[14pt]{beamer}
 
-\usetheme{epyt}
+\usetheme[color=black]{epyt} % black, blue, green, white
 
 \hypersetup{
   pdfpagemode={FullScreen},
@@ -30,7 +30,7 @@ Epyt is a simple but nice theme for Beamer, with the following features: \pause
 \begin{itemize}[<+->]
 \item simple structure: with page numbers at footer, no head bar and side bar;
 \item simple templates: displaying theorems with traditional inline style;
-\item simple colors: using only three main colors - gray, yellow and white.
+\item simple colors: using only several foreground and background colors.
 \end{itemize}
 \end{frame}
 
@@ -55,7 +55,8 @@ Prove the following result:
 \end{example}\pause
 \begin{proof}
 Since $\sin 3x \sim 3x$ and $\ln(1-2x) \sim -2x$, we have
-\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=\lim_{x\to0}\frac{3x}{-2x}=-\frac{3}{2} \]
+\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=\lim_{x\to0}\frac{3x}{-2x}=-\frac{3}{2}, \]
+and we are done.
 \end{proof}
 \end{frame}
 
