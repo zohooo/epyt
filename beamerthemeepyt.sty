@@ -139,13 +139,15 @@
 {
   \hbox{%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
-    \hspace*{1ex}\usebeamerfont{footline}\insertframenumber{}/\inserttotalframenumber
+    \hspace*{1ex}\usebeamerfont{footline}\Acrobatmenu{GoToPage}{\insertframenumber{}/\inserttotalframenumber}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
     \usebeamerfont{footline}\insertshorttitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
-    \usebeamerfont{footline}\hyperlinkframeendprev{$\lhd$}\hspace*{1ex}\hyperlinkframestartnext{$\rhd$}\hspace*{1ex}
+    \usebeamerfont{footline}%
+    \Acrobatmenu{GoBack}{$\lhd$}\hspace*{1ex}\Acrobatmenu{GoForward}{$\rhd$}\hspace*{1ex}%
+    \hyperlinkframeendprev{$\vartriangle$}\hspace*{1ex}\hyperlinkframestartnext{$\triangledown$}\hspace*{1ex}
   \end{beamercolorbox}%
   }%
 }
