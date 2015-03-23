@@ -23,11 +23,6 @@
 
 %% color theme
 
-\def\beamer@epyt@color@black{black}
-\def\beamer@epyt@color@blue{blue}
-\def\beamer@epyt@color@green{green}
-\def\beamer@epyt@color@white{white}
-
 \definecolor{dgray}{HTML}{202020}
 \definecolor{lgray}{HTML}{404040}
 \definecolor{dblue}{HTML}{0000CC}
@@ -67,24 +62,19 @@
   \setbeamercolor{local structure}{fg=lblue}
 }
 
-\def\beamer@epyt@color@do{
-  \ifx\beamer@epyt@color\beamer@epyt@color@white
-    \beamer@epyt@color@do@white
-  \else\ifx\beamer@epyt@color\beamer@epyt@color@blue
-    \beamer@epyt@color@do@blue
-  \else\ifx\beamer@epyt@color\beamer@epyt@color@green
-    \beamer@epyt@color@do@green
-  \else
-    \beamer@epyt@color@do@black
-  \fi\fi\fi
+\def\beamer@epyt@color@do{%
+  \expandafter\let\expandafter\next
+    \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
+  \ifx\next\relax \let\next\beamer@epyt@color@do@black \fi
+  \next
 }
 
 \beamer@epyt@color@do
 
 \RequirePackage{xkeyval}
 \define@key{epytsetup}{color}{\def\beamer@epyt@color{#1}}
-\newcommand{\epytsetup}[1]{
-  \setkeys{epytsetup}{#1}
+\newcommand{\epytsetup}[1]{%
+  \setkeys{epytsetup}{#1}%
   \beamer@epyt@color@do
 }
 
