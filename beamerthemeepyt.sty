@@ -115,21 +115,22 @@
 
 \setbeamertemplate{theorem begin}
 {%
-  \bfseries\upshape %\inserttheoremheadfont
+  \upshape%\bfseries\inserttheoremheadfont
   {\usebeamercolor[fg]{theoremname}%
   \inserttheoremname\inserttheoremnumber
   \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
-  \inserttheorempunctuation}\quad
-  \normalfont
+  %\inserttheorempunctuation
+  }%
+  \quad\normalfont
 }
 \setbeamertemplate{theorem end}{\par}
 
 
 \setbeamertemplate{proof begin}
 {%
-  \bfseries {\usebeamercolor[fg]{proofname}%
-  \insertproofname}\quad
-  \normalfont
+  %\bfseries
+  {\usebeamercolor[fg]{proofname}\insertproofname}%
+  \quad\normalfont
 }
 \setbeamertemplate{proof end}{\par}
 
