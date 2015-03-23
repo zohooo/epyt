@@ -37,18 +37,20 @@
 \definecolor{lgreen}{HTML}{A9EFA9}
 \definecolor{dorange}{HTML}{C07000}
 
-\ifx\beamer@epyt@color\beamer@epyt@color@white
+\def\beamer@epyt@color@do@white{
   \setbeamertemplate{background canvas}{}
   \setbeamertemplate{background}{}
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamercolor{structure}{fg=blue}
   \setbeamercolor{local structure}{fg=lgreen}
-\else\ifx\beamer@epyt@color\beamer@epyt@color@blue
+}
+\def\beamer@epyt@color@do@blue{
   \setbeamertemplate{background canvas}[vertical shading][top=black, middle=dblue, bottom=black]
   \setbeamercolor{normal text}{bg=blue, fg=white}
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=lblue}
-\else\ifx\beamer@epyt@color\beamer@epyt@color@green
+}
+\def\beamer@epyt@color@do@green{
   \setbeamercolor{background canvas}{bg=dgreen}
   \setbeamertemplate{background}[grid][step=1mm,color=ggreen]
   \setbeamercolor{normal text}{bg=dgreen, fg=white}
@@ -57,12 +59,34 @@
   \setbeamercolor{footline}{bg=dorange}
   \setbeamercolor{navigation symbols}{bg=dorange}
   \setbeamercolor{navigation symbols dimmed}{fg=dorange}
-\else
+}
+\def\beamer@epyt@color@do@black{
   \setbeamertemplate{background canvas}[vertical shading][top=black, middle=dgray, bottom=lgray]
   \setbeamercolor{normal text}{bg=black,fg=white}
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=lblue}
-\fi\fi\fi
+}
+
+\def\beamer@epyt@color@do{
+  \ifx\beamer@epyt@color\beamer@epyt@color@white
+    \beamer@epyt@color@do@white
+  \else\ifx\beamer@epyt@color\beamer@epyt@color@blue
+    \beamer@epyt@color@do@blue
+  \else\ifx\beamer@epyt@color\beamer@epyt@color@green
+    \beamer@epyt@color@do@green
+  \else
+    \beamer@epyt@color@do@black
+  \fi\fi\fi
+}
+
+\beamer@epyt@color@do
+
+\RequirePackage{xkeyval}
+\define@key{epytsetup}{color}{\def\beamer@epyt@color{#1}}
+\newcommand{\epytsetup}[1]{
+  \setkeys{epytsetup}{#1}
+  \beamer@epyt@color@do
+}
 
 \setbeamercolor{title}{fg=structure.fg}
 \setbeamercolor{subtitle}{fg=structure.fg!70!normal text.bg}
