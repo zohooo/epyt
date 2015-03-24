@@ -9,7 +9,8 @@
 
 \mode<presentation>
 
-\DeclareOptionBeamer{color}[black]{\def\beamer@epyt@color{#1}}
+\def\beamer@epyt@color{white}
+\DeclareOptionBeamer{color}[white]{\def\beamer@epyt@color{#1}}
 \ProcessOptionsBeamer
 
 %% basic settings
@@ -93,7 +94,7 @@
 \def\beamer@epyt@color@do{%
   \expandafter\let\expandafter\next
     \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
-  \ifx\next\relax \let\next\beamer@epyt@color@do@black \fi
+  \ifx\next\relax \let\next\beamer@epyt@color@do@white \fi
   \next
   % need this when switching color themes in the middle of the document
   \usebeamercolor[fg]{normal text}%
