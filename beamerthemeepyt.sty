@@ -21,11 +21,33 @@
 \setbeamersize{text margin left=1em,text margin right=1em}
 %\geometry{hmargin=1em,vmargin=0em}
 
+%% define some templates
+
+% make "vertical shading" modifiable in the middle of the document
+% see beamerbaseauxtemplates.sty for the original code
+
+\define@key{epyt@backgroundshade}{bottom}{\def\epyt@bgsb{#1}}
+\define@key{epyt@backgroundshade}{middle}{\def\epyt@bgsm{#1}}
+\define@key{epyt@backgroundshade}{top}{\def\epyt@bgst{#1}}
+\define@key{epyt@backgroundshade}{midpoint}{\def\epyt@bgsmp{#1}}
+
+\defbeamertemplate{background canvas}{epyt shading}[1][]
+{%
+  \setkeys{epyt@backgroundshade}{middle={},midpoint=0.5}%
+  \setkeys{epyt@backgroundshade}{#1}%
+  \pgfdeclareverticalshading[\epyt@bgsb,\epyt@bgsm,\epyt@bgst]%
+    {epyt@backgroundshading}{\the\paperwidth}%
+    {color(0cm)=(\epyt@bgsb);
+     color(\epyt@bgsmp\paperheight)=(\epyt@bgsm);
+     color(\the\paperheight)=(\epyt@bgst)}%
+  \pgfuseshading{epyt@backgroundshading}%
+}
+
 %% color theme
 
 \definecolor{dgray}{HTML}{202020}
 \definecolor{lgray}{HTML}{404040}
-\definecolor{dblue}{HTML}{0040FF}
+\definecolor{dblue}{HTML}{3333B2}
 \definecolor{tblue}{HTML}{000099}
 \definecolor{gblue}{HTML}{0033CC}
 \definecolor{lblue}{HTML}{ABCDEF}
@@ -36,17 +58,17 @@
 \definecolor{dorange}{HTML}{C07000}
 
 \def\beamer@epyt@color@do@white{
-  \setbeamertemplate{background canvas}{}
-  \setbeamertemplate{background}{}
   \setbeamercolor{normal text}{bg=white,fg=black}
+  \setbeamertemplate{background canvas}[default]
+  \setbeamertemplate{background}[default]
   \setbeamercolor{structure}{fg=blue}
   \setbeamercolor{local structure}{fg=teal}
   \setbeamercolor{footline}{bg=dblue,fg=white}
 }
 \def\beamer@epyt@color@do@blue{
-  \setbeamertemplate{background canvas}[vertical shading][top=tblue, middle=dblue, bottom=tblue]
-  \setbeamertemplate{background}[grid][step=1mm,color=gblue]
   \setbeamercolor{normal text}{bg=dblue,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=tblue,middle=dblue,bottom=tblue]
+  \setbeamertemplate{background}[grid][step=1mm,color=gblue]
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=lblue}
   \setbeamercolor{footline}{bg=dred,fg=white}
@@ -54,9 +76,9 @@
   \setbeamercolor{navigation symbols dimmed}{fg=dred}
 }
 \def\beamer@epyt@color@do@green{
-  \setbeamercolor{background canvas}{bg=dgreen}
+  \setbeamercolor{normal text}{bg=dgreen,fg=white}
+  \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=ggreen]
-  \setbeamercolor{normal text}{bg=dgreen, fg=white}
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=lgreen}
   \setbeamercolor{footline}{bg=dorange,fg=white}
@@ -64,10 +86,12 @@
   \setbeamercolor{navigation symbols dimmed}{fg=dorange}
 }
 \def\beamer@epyt@color@do@black{
-  \setbeamertemplate{background canvas}[vertical shading][top=black, middle=dgray, bottom=lgray]
   \setbeamercolor{normal text}{bg=black,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=dgray,bottom=lgray]
+  \setbeamertemplate{background}[default]
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=lblue}
+  \setbeamercolor{footline}{bg=,fg=white}
 }
 
 \def\beamer@epyt@color@do{%
@@ -75,6 +99,9 @@
     \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
   \ifx\next\relax \let\next\beamer@epyt@color@do@black \fi
   \next
+  % need this when switching color themes in the middle of the document
+  \usebeamercolor[fg]{normal text}%
+  %\renewcommand{\normalcolor}{\color{normal text.fg}}%
 }
 
 \beamer@epyt@color@do
@@ -86,16 +113,13 @@
   \beamer@epyt@color@do
 }
 
-\setbeamercolor{title}{fg=structure.fg}
-\setbeamercolor{subtitle}{fg=structure.fg!90!normal text.bg}
-\setbeamercolor{section in toc}{fg=structure.fg}
-\setbeamercolor{subsection in toc}{fg=structure.fg!90!normal text.bg}
-\setbeamercolor{frametitle}{fg=structure.fg}
-\setbeamercolor{theoremname}{fg=structure.fg!90!normal text.bg}
-\setbeamercolor{proofname}{fg=structure.fg!90!normal text.bg}
-%\setbeamercolor{footline}{fg=normal text.fg}
-%\setbeamercolor{navigation symbols}{fg=normal text.fg}
-%\setbeamercolor{navigation symbols dimmed}{fg=normal text.fg}
+\setbeamercolor{title}{use=structure,fg=structure.fg}
+\setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
+\setbeamercolor{section in toc}{parent=title}
+\setbeamercolor{subsection in toc}{parent=subtitle}
+\setbeamercolor{frametitle}{parent=title}
+\setbeamercolor{theoremname}{parent=subtitle}
+\setbeamercolor{proofname}{parent=subtitle}
 
 %% font theme
 
