@@ -68,6 +68,14 @@
 \definecolor{blue99}{Hsb}{240,0.9,0.9}
 \definecolor{purple94}{Hsb}{330,0.9,0.4}
 
+\def\beamer@epyt@color@do@black{
+  \setbeamercolor{normal text}{bg=black,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
+  \setbeamertemplate{background}[default]
+  \setbeamercolor{structure}{fg=yellow99}
+  \setbeamercolor{local structure}{fg=azure39}
+  \setbeamercolor{footline}{bg=,fg=white}
+}
 \def\beamer@epyt@color@do@white{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
@@ -75,16 +83,6 @@
   \setbeamercolor{structure}{fg=blue99}
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
-}
-\def\beamer@epyt@color@do@blue{
-  \setbeamercolor{normal text}{bg=blue77,fg=white}
-  \setbeamertemplate{background canvas}[epyt shading][top=blue97,middle=blue77,bottom=blue97]
-  \setbeamertemplate{background}[grid][step=1mm,color=blue88]
-  \setbeamercolor{structure}{fg=yellow99}
-  \setbeamercolor{local structure}{fg=azure39}
-  \setbeamercolor{footline}{bg=purple94,fg=white}
-  \setbeamercolor{navigation symbols}{bg=purple94}
-  \setbeamercolor{navigation symbols dimmed}{fg=purple94}
 }
 \def\beamer@epyt@color@do@green{
   \setbeamercolor{normal text}{bg=green33,fg=white}
@@ -96,13 +94,15 @@
   \setbeamercolor{navigation symbols}{bg=brown96}
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
 }
-\def\beamer@epyt@color@do@black{
-  \setbeamercolor{normal text}{bg=black,fg=white}
-  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[default]
+\def\beamer@epyt@color@do@blue{
+  \setbeamercolor{normal text}{bg=blue77,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=blue97,middle=blue77,bottom=blue97]
+  \setbeamertemplate{background}[grid][step=1mm,color=blue88]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=azure39}
-  \setbeamercolor{footline}{bg=,fg=white}
+  \setbeamercolor{footline}{bg=purple94,fg=white}
+  \setbeamercolor{navigation symbols}{bg=purple94}
+  \setbeamercolor{navigation symbols dimmed}{fg=purple94}
 }
 
 \def\beamer@epyt@color@do{%
