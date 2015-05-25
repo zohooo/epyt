@@ -211,8 +211,14 @@
 
 %% outer theme
 
-\setbeamertemplate{frametitle}{\noindent\usebeamerfont{frametitle}\insertframetitle\par}
+\defbeamertemplate*{frametitle}{simple}
+{%
+  \noindent\usebeamerfont{frametitle}\insertframetitle\par
+}
+\setbeamertemplate{frametitle}[simple]
+
 \setbeamertemplate{navigation symbols}{}
+
 \defbeamertemplate*{footline}{simple}
 {
   \hbox{%
