@@ -230,6 +230,22 @@
   \end{beamercolorbox}%
   }%
 }
+\defbeamertemplate*{footline}{sectioning}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
+    \usebeamerfont{footline}\hspace*{\beamer@leftmargin}\insertshorttitle
+    \ifx\insertsection\@empty\else\qquad$\vartriangleright$\qquad\insertsection\fi
+    \ifx\insertsubsection\@empty\else\qquad$\vartriangleright$\qquad\insertsubsection\fi
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
+    \usebeamerfont{footline}%
+    \hyperlinkframeendprev{$\vartriangle$}
+    \Acrobatmenu{GoToPage}{\insertframenumber{}/\inserttotalframenumber}
+    \hyperlinkframestartnext{$\triangledown$}\hspace*{\beamer@rightmargin}
+  \end{beamercolorbox}%
+  }%
+}
 \setbeamertemplate{footline}[simple]
 
 \mode<handout>{
