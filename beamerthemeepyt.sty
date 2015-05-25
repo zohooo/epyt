@@ -213,7 +213,7 @@
 
 \setbeamertemplate{frametitle}{\noindent\usebeamerfont{frametitle}\insertframetitle\par}
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}
+\defbeamertemplate*{footline}{simple}
 {
   \hbox{%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
@@ -228,6 +228,7 @@
   \end{beamercolorbox}%
   }%
 }
+\setbeamertemplate{footline}[simple]
 
 \mode<handout>{
   \setbeamertemplate{background canvas}{}
