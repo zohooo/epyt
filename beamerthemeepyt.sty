@@ -55,8 +55,11 @@
 \substitutecolormodel{hsb}{rgb}
 
 \definecolor{gray1}{gray}{0.1}
+\definecolor{red87}{Hsb}{0,0.8,0.7}
+\definecolor{red85}{Hsb}{0,0.8,0.5}
 \definecolor{brown96}{Hsb}{30,0.9,0.6}
 \definecolor{yellow99}{Hsb}{60,0.9,0.9}
+\definecolor{green13}{Hsb}{120,0.1,0.3}
 \definecolor{green33}{Hsb}{120,0.3,0.3}
 \definecolor{green39}{Hsb}{120,0.3,0.9}
 \definecolor{green53}{Hsb}{120,0.5,0.3}
@@ -83,6 +86,16 @@
   \setbeamercolor{structure}{fg=blue99}
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
+}
+\def\beamer@epyt@color@do@red{
+  \setbeamercolor{normal text}{bg=red87,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=red85,middle=red87,bottom=red85]
+  \setbeamertemplate{background}[grid][step=8mm,color=green13]
+  \setbeamercolor{structure}{fg=yellow99}
+  \setbeamercolor{local structure}{fg=yellow99}
+  \setbeamercolor{footline}{bg=black,fg=white}
+  \setbeamercolor{navigation symbols}{bg=black}
+  \setbeamercolor{navigation symbols dimmed}{fg=black}
 }
 \def\beamer@epyt@color@do@green{
   \setbeamercolor{normal text}{bg=green33,fg=white}
