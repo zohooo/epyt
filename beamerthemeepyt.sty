@@ -217,14 +217,16 @@
 {
   \hbox{%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
-    \hspace*{1ex}\usebeamerfont{footline}\Acrobatmenu{GoToPage}{\insertframenumber{}/\inserttotalframenumber}
+    \usebeamerfont{footline}\hspace*{\beamer@leftmargin}%
+    \Acrobatmenu{GoToPage}{\insertframenumber{}/\inserttotalframenumber}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
     \usebeamerfont{footline}\insertshorttitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
     \usebeamerfont{footline}%
-    \hyperlinkframeendprev{$\vartriangle$}\hspace*{1ex}\hyperlinkframestartnext{$\triangledown$}\hspace*{1ex}
+    \hyperlinkframeendprev{$\vartriangle$}\hspace*{1ex}\hyperlinkframestartnext{$\triangledown$}%
+    \hspace*{\beamer@rightmargin}
   \end{beamercolorbox}%
   }%
 }
