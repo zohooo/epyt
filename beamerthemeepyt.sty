@@ -51,52 +51,54 @@
 
 %% color theme
 
-\definecolor{dgray}{HTML}{202020}
-\definecolor{lgray}{HTML}{404040}
-\definecolor{dblue}{HTML}{3333B2}
-\definecolor{tblue}{HTML}{000099}
-\definecolor{gblue}{HTML}{0033CC}
-\definecolor{lblue}{HTML}{ABCDEF}
-\definecolor{dred}{HTML}{660033}
-\definecolor{dgreen}{HTML}{254535}
-\definecolor{ggreen}{HTML}{214131}
-\definecolor{lgreen}{HTML}{A9EFA9}
-\definecolor{dorange}{HTML}{C07000}
+\definecolor{gray1}{gray}{0.1}
+\definecolor{brown96}{Hsb}{30,0.9,0.6}
+\definecolor{yellow99}{Hsb}{60,0.9,0.9}
+\definecolor{green33}{Hsb}{150,0.3,0.3}
+\definecolor{green39}{Hsb}{120,0.3,0.9}
+\definecolor{green53}{Hsb}{150,0.5,0.3}
+\definecolor{cyan95}{Hsb}{180,0.9,0.5}
+\definecolor{azure39}{Hsb}{210,0.3,0.9}
+\definecolor{blue77}{Hsb}{240,0.7,0.7}
+\definecolor{blue88}{Hsb}{240,0.8,0.8}
+\definecolor{blue97}{Hsb}{240,0.9,0.7}
+\definecolor{blue99}{Hsb}{240,0.9,0.9}
+\definecolor{purple94}{Hsb}{330,0.9,0.4}
 
 \def\beamer@epyt@color@do@white{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[default]
-  \setbeamercolor{structure}{fg=blue}
-  \setbeamercolor{local structure}{fg=teal}
-  \setbeamercolor{footline}{bg=dblue,fg=white}
+  \setbeamercolor{structure}{fg=blue99}
+  \setbeamercolor{local structure}{fg=cyan95}
+  \setbeamercolor{footline}{bg=blue77,fg=white}
 }
 \def\beamer@epyt@color@do@blue{
-  \setbeamercolor{normal text}{bg=dblue,fg=white}
-  \setbeamertemplate{background canvas}[epyt shading][top=tblue,middle=dblue,bottom=tblue]
-  \setbeamertemplate{background}[grid][step=1mm,color=gblue]
-  \setbeamercolor{structure}{fg=yellow}
-  \setbeamercolor{local structure}{fg=lblue}
-  \setbeamercolor{footline}{bg=dred,fg=white}
-  \setbeamercolor{navigation symbols}{bg=dred}
-  \setbeamercolor{navigation symbols dimmed}{fg=dred}
+  \setbeamercolor{normal text}{bg=blue77,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=blue97,middle=blue77,bottom=blue97]
+  \setbeamertemplate{background}[grid][step=1mm,color=blue88]
+  \setbeamercolor{structure}{fg=yellow99}
+  \setbeamercolor{local structure}{fg=azure39}
+  \setbeamercolor{footline}{bg=purple94,fg=white}
+  \setbeamercolor{navigation symbols}{bg=purple94}
+  \setbeamercolor{navigation symbols dimmed}{fg=purple94}
 }
 \def\beamer@epyt@color@do@green{
-  \setbeamercolor{normal text}{bg=dgreen,fg=white}
+  \setbeamercolor{normal text}{bg=green33,fg=white}
   \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[grid][step=1mm,color=ggreen]
+  \setbeamertemplate{background}[grid][step=1mm,color=green53]
   \setbeamercolor{structure}{fg=yellow}
-  \setbeamercolor{local structure}{fg=lgreen}
-  \setbeamercolor{footline}{bg=dorange,fg=white}
-  \setbeamercolor{navigation symbols}{bg=dorange}
-  \setbeamercolor{navigation symbols dimmed}{fg=dorange}
+  \setbeamercolor{local structure}{fg=green39}
+  \setbeamercolor{footline}{bg=brown96,fg=white}
+  \setbeamercolor{navigation symbols}{bg=brown96}
+  \setbeamercolor{navigation symbols dimmed}{fg=brown96}
 }
 \def\beamer@epyt@color@do@black{
   \setbeamercolor{normal text}{bg=black,fg=white}
-  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=dgray,bottom=lgray]
+  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[default]
-  \setbeamercolor{structure}{fg=yellow}
-  \setbeamercolor{local structure}{fg=lblue}
+  \setbeamercolor{structure}{fg=yellow99}
+  \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
 }
 
