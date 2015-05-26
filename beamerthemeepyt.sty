@@ -126,25 +126,6 @@
   \setbeamercolor{navigation symbols dimmed}{fg=purple94}
 }
 
-\def\beamer@epyt@color@do{%
-  \expandafter\let\expandafter\next
-    \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
-  \ifx\next\relax \let\next\beamer@epyt@color@do@white \fi
-  \next
-  % need this when switching color themes in the middle of the document
-  \usebeamercolor[fg]{normal text}%
-  %\renewcommand{\normalcolor}{\color{normal text.fg}}%
-}
-
-\beamer@epyt@color@do
-
-\RequirePackage{xkeyval}
-\define@key{epytsetup}{color}{\def\beamer@epyt@color{#1}}
-\newcommand{\epytsetup}[1]{%
-  \setkeys{epytsetup}{#1}%
-  \beamer@epyt@color@do
-}
-
 \setbeamercolor{title}{use=structure,fg=structure.fg}
 \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
 \setbeamercolor{section in toc}{parent=title}
@@ -278,6 +259,29 @@
   }%
 }
 \setbeamertemplate{footline}[simple]
+
+%% apply user selected theme at last
+
+\def\beamer@epyt@color@do{%
+  \expandafter\let\expandafter\next
+    \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
+  \ifx\next\relax \let\next\beamer@epyt@color@do@white \fi
+  \next
+  % need this when switching color themes in the middle of the document
+  \usebeamercolor[fg]{normal text}%
+  %\renewcommand{\normalcolor}{\color{normal text.fg}}%
+}
+
+\beamer@epyt@color@do
+
+\RequirePackage{xkeyval}
+\define@key{epytsetup}{color}{\def\beamer@epyt@color{#1}}
+\newcommand{\epytsetup}[1]{%
+  \setkeys{epytsetup}{#1}%
+  \beamer@epyt@color@do
+}
+
+%% empty background colors for handout
 
 \mode<handout>{
   \setbeamertemplate{background canvas}{}
