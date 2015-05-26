@@ -16,6 +16,14 @@
 
 \makeatletter
 
+\RequirePackage{tikz}
+\usetikzlibrary{patterns}
+
+% hack for pgf prior to version 3.0 in xetex
+\ifxetex
+  \@ifpackagelater{pgf}{2013/12/18}{}{\input{pgfsys-dvipdfmx.def}}
+\fi
+
 \mode<presentation>
 
 \def\beamer@epyt@color{white}
@@ -74,7 +82,7 @@
 \def\beamer@epyt@color@do@black{
   \setbeamercolor{normal text}{bg=black,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[default]
+  \setbeamertemplate{background}[line]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
@@ -82,7 +90,7 @@
 \def\beamer@epyt@color@do@white{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[default]
+  \setbeamertemplate{background}[line]
   \setbeamercolor{structure}{fg=blue99}
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
@@ -90,7 +98,7 @@
 \def\beamer@epyt@color@do@red{
   \setbeamercolor{normal text}{bg=red87,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=red85,middle=red87,bottom=red85]
-  \setbeamertemplate{background}[grid][step=8mm,color=green13]
+  \setbeamertemplate{background}[brick]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=yellow99}
   \setbeamercolor{footline}{bg=black,fg=white}
@@ -210,6 +218,23 @@
 \setbeamertemplate{proof end}{\par}
 
 %% outer theme
+
+\defbeamertemplate{background}{brick}
+{%
+  \usebeamercolor{normal text}%
+  \begin{tikzpicture}
+  \draw[pattern=bricks, pattern color=normal text.bg!80!black]
+      (0,0) rectangle (\paperwidth-\pgflinewidth,\paperheight-\pgflinewidth);
+  \end{tikzpicture}
+}
+\defbeamertemplate{background}{line}
+{%
+  \usebeamercolor{normal text}%
+  \begin{tikzpicture}
+  \draw[pattern=horizontal lines, pattern color=normal text.bg!90!normal text.fg]
+      (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}
+}
 
 \defbeamertemplate{frametitle}{simple}
 {%
