@@ -26,8 +26,8 @@
 
 \mode<presentation>
 
-\def\beamer@epyt@color{white}
-\DeclareOptionBeamer{color}[white]{\def\beamer@epyt@color{#1}}
+\def\beamer@epyt@style{default}
+\DeclareOptionBeamer{style}[default]{\def\beamer@epyt@style{#1}}
 \ProcessOptionsBeamer
 
 %% basic settings
@@ -79,7 +79,7 @@
 \definecolor{blue99}{Hsb}{240,0.9,0.9}
 \definecolor{purple94}{Hsb}{330,0.9,0.4}
 
-\def\beamer@epyt@color@do@black{
+\def\beamer@epyt@style@do@night{
   \setbeamercolor{normal text}{bg=black,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[line]
@@ -87,7 +87,7 @@
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
 }
-\def\beamer@epyt@color@do@white{
+\def\beamer@epyt@style@do@default{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[line]
@@ -95,7 +95,7 @@
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
 }
-\def\beamer@epyt@color@do@red{
+\def\beamer@epyt@style@do@brick{
   \setbeamercolor{normal text}{bg=red87,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=red85,middle=red87,bottom=red85]
   \setbeamertemplate{background}[brick]
@@ -105,7 +105,7 @@
   \setbeamercolor{navigation symbols}{bg=black}
   \setbeamercolor{navigation symbols dimmed}{fg=black}
 }
-\def\beamer@epyt@color@do@green{
+\def\beamer@epyt@style@do@grass{
   \setbeamercolor{normal text}{bg=green33,fg=white}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=green53]
@@ -115,7 +115,7 @@
   \setbeamercolor{navigation symbols}{bg=brown96}
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
 }
-\def\beamer@epyt@color@do@blue{
+\def\beamer@epyt@style@do@sky{
   \setbeamercolor{normal text}{bg=blue77,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=blue97,middle=blue77,bottom=blue97]
   \setbeamertemplate{background}[grid][step=1mm,color=blue88]
@@ -262,23 +262,23 @@
 
 %% apply user selected theme at last
 
-\def\beamer@epyt@color@do{%
+\def\beamer@epyt@style@do{%
   \expandafter\let\expandafter\next
-    \csname beamer@epyt@color@do@\beamer@epyt@color\endcsname
-  \ifx\next\relax \let\next\beamer@epyt@color@do@white \fi
+    \csname beamer@epyt@style@do@\beamer@epyt@style\endcsname
+  \ifx\next\relax \let\next\beamer@epyt@style@do@default \fi
   \next
   % need this when switching color themes in the middle of the document
   \usebeamercolor[fg]{normal text}%
   %\renewcommand{\normalcolor}{\color{normal text.fg}}%
 }
 
-\beamer@epyt@color@do
+\beamer@epyt@style@do
 
 \RequirePackage{xkeyval}
-\define@key{epytsetup}{color}{\def\beamer@epyt@color{#1}}
+\define@key{epytsetup}{style}{\def\beamer@epyt@style{#1}}
 \newcommand{\epytsetup}[1]{%
   \setkeys{epytsetup}{#1}%
-  \beamer@epyt@color@do
+  \beamer@epyt@style@do
 }
 
 %% empty background colors for handout
