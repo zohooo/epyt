@@ -79,14 +79,6 @@
 \definecolor{blue99}{Hsb}{240,0.9,0.9}
 \definecolor{purple94}{Hsb}{330,0.9,0.4}
 
-\def\beamer@epyt@style@do@night{
-  \setbeamercolor{normal text}{bg=black,fg=white}
-  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[line]
-  \setbeamercolor{structure}{fg=yellow99}
-  \setbeamercolor{local structure}{fg=azure39}
-  \setbeamercolor{footline}{bg=,fg=white}
-}
 \def\beamer@epyt@style@do@default{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
@@ -114,6 +106,14 @@
   \setbeamercolor{footline}{bg=brown96,fg=white}
   \setbeamercolor{navigation symbols}{bg=brown96}
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
+}
+\def\beamer@epyt@style@do@night{
+  \setbeamercolor{normal text}{bg=black,fg=white}
+  \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
+  \setbeamertemplate{background}[line]
+  \setbeamercolor{structure}{fg=yellow99}
+  \setbeamercolor{local structure}{fg=azure39}
+  \setbeamercolor{footline}{bg=,fg=white}
 }
 \def\beamer@epyt@style@do@sky{
   \setbeamercolor{normal text}{bg=blue77,fg=white}
