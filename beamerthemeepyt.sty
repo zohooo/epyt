@@ -19,10 +19,59 @@
 \RequirePackage{tikz}
 \usetikzlibrary{patterns}
 
-% hack for pgf prior to version 3.0 in xetex
-\ifxetex
-  \@ifpackagelater{pgf}{2013/12/18}{}{\input{pgfsys-dvipdfmx.def}}
-\fi
+% hack pgf prior to version 3.0 for pgf patterns in xetex
+% code taken from pgfsys-dvipdfmx.def and pgfsys-xetex.def in pgf 3.0
+\def\epyt@hackpgf{
+  % fix typo in pgfsys-common-pdf-via-dvi.def in pgf 2.10
+  \pgfutil@insertatbegineverypage{%
+     \ifpgf@sys@pdf@any@resources%
+        \special{pdf:put @resources
+           << \ifpgf@sys@pdf@patterns@exists /Pattern @pgfpatterns \fi >>}%
+     \fi%
+  }
+  % required to give colors on pattern objects.
+  \pgfutil@addpdfresource@colorspaces{ /pgfprgb [/Pattern /DeviceRGB] }
+  % hook for xdvipdfmx
+  \def\pgfsys@dvipdfmx@patternobj##1{%
+	 \pgfutil@insertatbegincurrentpagefrombox{##1}%
+  }%
+  % dvipdfmx provides a new special `pdf:stream' for a stream object
+  \def\pgfsys@dvipdfmx@stream##1##2##3{%
+     \special{pdf:stream ##1 (##2) << ##3 >>}%
+  }%
+  % declare patterns and set patterns
+  \def\pgfsys@declarepattern##1##2##3##4##5##6##7##8##9{%
+     \pgf@xa=##2\relax \pgf@ya=##3\relax%
+     \pgf@xb=##4\relax \pgf@yb=##5\relax%
+     \pgf@xc=##6\relax \pgf@yc=##7\relax%
+     \pgf@sys@bp@correct\pgf@xa \pgf@sys@bp@correct\pgf@ya%
+     \pgf@sys@bp@correct\pgf@xb \pgf@sys@bp@correct\pgf@yb%
+     \pgf@sys@bp@correct\pgf@xc \pgf@sys@bp@correct\pgf@yc%
+     \pgfsys@dvipdfmx@patternobj{%
+        \pgfsys@dvipdfmx@stream{@pgfpatternobject##1}{##8}{%
+           /Type /Pattern
+           /PatternType 1
+           /PaintType \ifnum##9=0 2 \else 1 \fi
+           /TilingType 1
+           /BBox [\pgf@sys@tonumber\pgf@xa\space\pgf@sys@tonumber\pgf@ya\space
+                  \pgf@sys@tonumber\pgf@xb\space\pgf@sys@tonumber\pgf@yb]
+           /XStep \pgf@sys@tonumber\pgf@xc\space
+           /YStep \pgf@sys@tonumber\pgf@yc\space
+           /Resources << >> %<<
+        }%
+     }%
+     \pgfutil@addpdfresource@patterns{/pgfpat##1\space @pgfpatternobject##1}%
+  }
+  \def\pgfsys@setpatternuncolored##1##2##3##4{%
+     \pgfsysprotocol@literal{/pgfprgb cs ##2 ##3 ##4 /pgfpat##1\space scn}%
+  }
+  \def\pgfsys@setpatterncolored##1{%
+     \pgfsysprotocol@literal{/Pattern cs /pgfpat##1\space scn}%
+  }
+}
+\@ifpackagelater{pgf}{2013/12/18}{}{\ifxetex\expandafter\epyt@hackpgf\fi}%
+
+%%% presentation mode
 
 \mode<presentation>
 
