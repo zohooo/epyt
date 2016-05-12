@@ -64,7 +64,7 @@
 \definecolor{blue99}{Hsb}{240,0.9,0.9}
 \definecolor{purple94}{Hsb}{330,0.9,0.4}
 
-\def\beamer@epyt@style@do@default{
+\def\beamer@epyt@style@do@beta{
   \setbeamercolor{normal text}{bg=white,fg=black}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[line]
@@ -72,7 +72,7 @@
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
 }
-\def\beamer@epyt@style@do@brick{
+\def\beamer@epyt@style@do@zeta{
   \setbeamercolor{normal text}{bg=red87,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=red85,middle=red87,bottom=red85]
   \setbeamertemplate{background}[brick]
@@ -82,7 +82,7 @@
   \setbeamercolor{navigation symbols}{bg=black}
   \setbeamercolor{navigation symbols dimmed}{fg=black}
 }
-\def\beamer@epyt@style@do@grass{
+\def\beamer@epyt@style@do@gamma{
   \setbeamercolor{normal text}{bg=green33,fg=white}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=green53]
@@ -92,7 +92,7 @@
   \setbeamercolor{navigation symbols}{bg=brown96}
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
 }
-\def\beamer@epyt@style@do@night{
+\def\beamer@epyt@style@do@alpha{
   \setbeamercolor{normal text}{bg=black,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[line]
@@ -100,7 +100,7 @@
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
 }
-\def\beamer@epyt@style@do@sky{
+\def\beamer@epyt@style@do@delta{
   \setbeamercolor{normal text}{bg=blue77,fg=white}
   \setbeamertemplate{background canvas}[epyt shading][top=blue97,middle=blue77,bottom=blue97]
   \setbeamertemplate{background}[grid][step=1mm,color=blue88]
@@ -110,6 +110,7 @@
   \setbeamercolor{navigation symbols}{bg=purple94}
   \setbeamercolor{navigation symbols dimmed}{fg=purple94}
 }
+\let\beamer@epyt@style@do@default=\beamer@epyt@style@do@beta
 
 \setbeamercolor{title}{use=structure,fg=structure.fg}
 \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
