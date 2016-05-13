@@ -215,7 +215,7 @@
 
 % disable block style for theorems
 
-\setbeamertemplate{theorem begin}
+\defbeamertemplate{theorem begin}{simple}
 {%
   \upshape%\bfseries\inserttheoremheadfont
   {\usebeamercolor[fg]{theoremname}%
@@ -225,16 +225,21 @@
   }%
   \quad\normalfont
 }
-\setbeamertemplate{theorem end}{\par}
+\defbeamertemplate{theorem end}{simple}{\par}
 
+\setbeamertemplate{theorem begin}[simple]
+\setbeamertemplate{theorem end}[simple]
 
-\setbeamertemplate{proof begin}
+\defbeamertemplate{proof begin}{simple}
 {%
   %\bfseries
   {\usebeamercolor[fg]{proofname}\insertproofname}%
   \quad\normalfont
 }
-\setbeamertemplate{proof end}{\par}
+\defbeamertemplate{proof end}{simple}{\par}
+
+\setbeamertemplate{proof begin}[simple]
+\setbeamertemplate{proof end}[simple]
 
 %% outer theme
 
