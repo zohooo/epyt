@@ -108,19 +108,23 @@
   \begin{beamercolorbox}[#1]{title}
     \usebeamerfont{title}\inserttitle
   \end{beamercolorbox}
+  \ifx\insertsubtitle\@empty\else
   \vskip0.7em
-  \begin{beamercolorbox}[#1]{subtitle}
-    \usebeamerfont{subtitle}\insertsubtitle
-  \end{beamercolorbox}
-  \vskip2em
+    \begin{beamercolorbox}[#1]{subtitle}
+      \usebeamerfont{subtitle}\insertsubtitle
+    \end{beamercolorbox}
+  \fi%
+  \vskip2em{\color{text1!50!back1}\hrule}\vskip2em
   \begin{beamercolorbox}[#1]{author}
     \usebeamerfont{author}\insertauthor
   \end{beamercolorbox}
-  \vskip.7em
-  \begin{beamercolorbox}[#1]{institute}
-    \usebeamerfont{institute}\insertinstitute
-  \end{beamercolorbox}
-  \vskip2em
+  \ifx\insertinstitute\@empty\else
+  \vskip0.7em
+    \begin{beamercolorbox}[#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+  \fi%
+  \vskip2em{\color{text1!50!back1}\hrule}\vskip2em
   \begin{beamercolorbox}[#1]{date}
   \usebeamerfont{date}\insertdate
   \end{beamercolorbox}
