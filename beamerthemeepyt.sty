@@ -317,24 +317,26 @@
 }
 \let\beamer@epyt@style@do@default=\beamer@epyt@style@do@beta
 
-\colorlet{filler1}{accent1!50!back1}
-\colorlet{filler2}{accent2!50!back1}
-\colorlet{filler3}{accent3!50!back1}
-\colorlet{filler4}{accent4!50!back1}
-\colorlet{filler5}{accent5!50!back1}
-\setbeamercolor{title}{use=structure,fg=structure.fg}
-\setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
-\setbeamercolor{section in toc}{parent=title}
-\setbeamercolor{subsection in toc}{parent=subtitle}
-\setbeamercolor{frametitle}{parent=title}
-\setbeamercolor{theoremname}{parent=subtitle}
-\setbeamercolor{proofname}{parent=subtitle}
-\setbeamercolor{block title}{fg=accent1,bg=darkgray}
-\setbeamercolor{block body}{bg=gray}
-\setbeamercolor{block title example}{fg=accent2,bg=darkgray}
-\setbeamercolor{block body example}{bg=gray}
-\setbeamercolor{block title alerted}{fg=accent3,bg=darkgray}
-\setbeamercolor{block body alerted}{bg=gray}
+\def\beamer@epyt@style@do@common{
+  \colorlet{filler1}{accent1!50!back1}
+  \colorlet{filler2}{accent2!50!back1}
+  \colorlet{filler3}{accent3!50!back1}
+  \colorlet{filler4}{accent4!50!back1}
+  \colorlet{filler5}{accent5!50!back1}
+  \setbeamercolor{title}{use=structure,fg=structure.fg}
+  \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
+  \setbeamercolor{section in toc}{parent=title}
+  \setbeamercolor{subsection in toc}{parent=subtitle}
+  \setbeamercolor{frametitle}{parent=title}
+  \setbeamercolor{theoremname}{parent=subtitle}
+  \setbeamercolor{proofname}{parent=subtitle}
+  \setbeamercolor{block title}{fg=accent1,bg=darkgray}
+  \setbeamercolor{block body}{bg=gray}
+  \setbeamercolor{block title example}{fg=accent2,bg=darkgray}
+  \setbeamercolor{block body example}{bg=gray}
+  \setbeamercolor{block title alerted}{fg=accent3,bg=darkgray}
+  \setbeamercolor{block body alerted}{bg=gray}
+}
 
 %% apply user selected theme at last
 
@@ -343,6 +345,7 @@
     \csname beamer@epyt@style@do@\beamer@epyt@style\endcsname
   \ifx\next\relax \let\next\beamer@epyt@style@do@default \fi
   \next
+  \beamer@epyt@style@do@common
   % need this when switching color themes in the middle of the document
   \usebeamercolor[fg]{normal text}%
   %\renewcommand{\normalcolor}{\color{normal text.fg}}%
