@@ -145,9 +145,6 @@
 }
 \defbeamertemplate{theorem end}{simple}{\par}
 
-\setbeamertemplate{theorem begin}[simple]
-\setbeamertemplate{theorem end}[simple]
-
 \defbeamertemplate{proof begin}{simple}
 {%
   %\bfseries
@@ -155,9 +152,6 @@
   \quad\normalfont
 }
 \defbeamertemplate{proof end}{simple}{\par}
-
-\setbeamertemplate{proof begin}[simple]
-\setbeamertemplate{proof end}[simple]
 
 %% -------------------- font theme --------------------
 
@@ -193,11 +187,15 @@
   \colorlet{accent4}{cyan69}
   \colorlet{accent5}{magenta69}
   \setbeamercolor{normal text}{bg=black,fg=white}
-  \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[line]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
+  \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
+  \setbeamertemplate{background}[line]
+  \setbeamertemplate{theorem begin}[default]
+  \setbeamertemplate{theorem end}[default]
+  \setbeamertemplate{proof begin}[default]
+  \setbeamertemplate{proof end}[default]
 }
 \def\beamer@epyt@style@do@beta{
   \definecolor{red99}{Hsb}{0,0.9,0.9}
@@ -212,11 +210,15 @@
   \colorlet{accent4}{yellow86}
   \colorlet{accent5}{magenta88}
   \setbeamercolor{normal text}{bg=white,fg=black}
-  \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[line]
   \setbeamercolor{structure}{fg=blue99}
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
+  \setbeamertemplate{background canvas}[default]
+  \setbeamertemplate{background}[line]
+  \setbeamertemplate{theorem begin}[simple]
+  \setbeamertemplate{theorem end}[simple]
+  \setbeamertemplate{proof begin}[simple]
+  \setbeamertemplate{proof end}[simple]
 }
 \def\beamer@epyt@style@do@delta{
   \definecolor{red69}{Hsb}{0,0.6,0.9}
@@ -236,13 +238,17 @@
   \colorlet{accent4}{cyan69}
   \colorlet{accent5}{magenta69}
   \setbeamercolor{normal text}{bg=blue77,fg=white}
-  \setbeamertemplate{background canvas}[myshading][top=blue97,middle=blue77,bottom=blue97]
-  \setbeamertemplate{background}[grid][step=1mm,color=blue88]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=purple94,fg=white}
   \setbeamercolor{navigation symbols}{bg=purple94}
   \setbeamercolor{navigation symbols dimmed}{fg=purple94}
+  \setbeamertemplate{background canvas}[myshading][top=blue97,middle=blue77,bottom=blue97]
+  \setbeamertemplate{background}[grid][step=1mm,color=blue88]
+  \setbeamertemplate{theorem begin}[simple]
+  \setbeamertemplate{theorem end}[simple]
+  \setbeamertemplate{proof begin}[simple]
+  \setbeamertemplate{proof end}[simple]
 }
 \def\beamer@epyt@style@do@gamma{
   \definecolor{red69}{Hsb}{0,0.6,0.9}
@@ -260,13 +266,17 @@
   \colorlet{accent4}{cyan69}
   \colorlet{accent5}{magenta69}
   \setbeamercolor{normal text}{bg=green33,fg=white}
-  \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[grid][step=1mm,color=green53]
   \setbeamercolor{structure}{fg=yellow}
   \setbeamercolor{local structure}{fg=green39}
   \setbeamercolor{footline}{bg=brown96,fg=white}
   \setbeamercolor{navigation symbols}{bg=brown96}
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
+  \setbeamertemplate{background canvas}[default]
+  \setbeamertemplate{background}[grid][step=1mm,color=green53]
+  \setbeamertemplate{theorem begin}[default]
+  \setbeamertemplate{theorem end}[default]
+  \setbeamertemplate{proof begin}[default]
+  \setbeamertemplate{proof end}[default]
 }
 \def\beamer@epyt@style@do@zeta{
   \definecolor{red85}{Hsb}{0,0.8,0.5}
@@ -283,13 +293,17 @@
   \colorlet{accent4}{cyan69}
   \colorlet{accent5}{blue5x}
   \setbeamercolor{normal text}{bg=red87,fg=white}
-  \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
-  \setbeamertemplate{background}[brick]
   \setbeamercolor{structure}{fg=yellow99}
   \setbeamercolor{local structure}{fg=yellow99}
   \setbeamercolor{footline}{bg=black,fg=white}
   \setbeamercolor{navigation symbols}{bg=black}
   \setbeamercolor{navigation symbols dimmed}{fg=black}
+  \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
+  \setbeamertemplate{background}[brick]
+  \setbeamertemplate{theorem begin}[default]
+  \setbeamertemplate{theorem end}[default]
+  \setbeamertemplate{proof begin}[default]
+  \setbeamertemplate{proof end}[default]
 }
 \let\beamer@epyt@style@do@default=\beamer@epyt@style@do@beta
 
