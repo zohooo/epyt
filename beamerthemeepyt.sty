@@ -130,6 +130,38 @@
   \end{beamercolorbox}
 }
 
+\defbeamertemplate{title page}{triangle}[1][]{
+  \begin{beamercolorbox}[#1]{title}
+    \usebeamerfont{title}\inserttitle
+  \end{beamercolorbox}
+  \ifx\insertsubtitle\@empty\else
+  \vskip0.7em
+    \begin{beamercolorbox}[#1]{subtitle}
+      \usebeamerfont{subtitle}\insertsubtitle
+    \end{beamercolorbox}
+  \fi%
+  \vskip1.8em{%
+    \color{text1!50!back1}\leavevmode\tiny
+    \leaders\hbox to 1em{\hss$\triangleright$\hss}\hfill
+  }\vskip1.8em
+  \begin{beamercolorbox}[#1]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}
+  \ifx\insertinstitute\@empty\else
+  \vskip0.7em
+    \begin{beamercolorbox}[#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+  \fi%
+  \vskip1.8em{%
+    \color{text1!50!back1}\leavevmode\tiny
+    \leaders\hbox to 1em{\hss$\triangleleft$\hss}\hfill
+  }\vskip1.8em
+  \begin{beamercolorbox}[#1]{date}
+  \usebeamerfont{date}\insertdate
+  \end{beamercolorbox}
+}
+
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
 
@@ -246,7 +278,7 @@
   \setbeamercolor{footline}{bg=blue77,fg=white}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[line]
-  \setbeamertemplate{title page}[simple][center]
+  \setbeamertemplate{title page}[triangle][center]
   \setbeamertemplate{theorem begin}[simple]
   \setbeamertemplate{theorem end}[simple]
   \setbeamertemplate{proof begin}[simple]
@@ -310,7 +342,7 @@
   \setbeamercolor{navigation symbols dimmed}{fg=brown96}
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=green53]
-  \setbeamertemplate{title page}[simple][left]
+  \setbeamertemplate{title page}[triangle][left]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
