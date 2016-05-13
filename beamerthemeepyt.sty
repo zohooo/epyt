@@ -194,22 +194,24 @@
 
 % sections and subsections
 
-\AtBeginSection[]{
-\begin{frame}
+\AtBeginSection[]{\frame{\sectionpage}}
+
+\defbeamertemplate{section page}{simple}{
   \begin{center}
     \usebeamerfont{section in toc}
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide]
   \end{center}
-\end{frame}
 }
+\setbeamertemplate{section page}[simple]
 
-\AtBeginSubsection[]{
-\begin{frame}
+\AtBeginSubsection[]{\frame{\subsectionpage}}
+
+\defbeamertemplate{subsection page}{simple}{
   \begin{beamercolorbox}[wd=\paperwidth,center]{subsection in toc}%
   \usebeamerfont{subsection in toc}\insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
   \end{beamercolorbox}%
-\end{frame}
 }
+\setbeamertemplate{subsection page}[simple]
 
 % disable block style for theorems
 
