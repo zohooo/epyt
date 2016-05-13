@@ -181,6 +181,8 @@
   \definecolor{cyan69}{Hsb}{180,0.6,0.9}
   \definecolor{azure39}{Hsb}{210,0.3,0.9}
   \definecolor{magenta69}{Hsb}{300,0.6,0.9}
+  \colorlet{text1}{white}
+  \colorlet{back1}{black}
   \colorlet{accent1}{yellow69}
   \colorlet{accent2}{green69}
   \colorlet{accent3}{red69}
@@ -204,6 +206,8 @@
   \definecolor{blue77}{Hsb}{240,0.7,0.7}
   \definecolor{blue99}{Hsb}{240,0.9,0.9}
   \definecolor{magenta88}{Hsb}{300,0.8,0.8}
+  \colorlet{text1}{black}
+  \colorlet{back1}{white}
   \colorlet{accent1}{blue99}
   \colorlet{accent2}{cyan95}
   \colorlet{accent3}{red99}
@@ -232,6 +236,8 @@
   \definecolor{blue97}{Hsb}{240,0.9,0.7}
   \definecolor{magenta69}{Hsb}{300,0.6,0.9}
   \definecolor{purple94}{Hsb}{330,0.9,0.4}
+  \colorlet{text1}{white}
+  \colorlet{back1}{blue77}
   \colorlet{accent1}{yellow69}
   \colorlet{accent2}{green69}
   \colorlet{accent3}{red69}
@@ -260,6 +266,8 @@
   \definecolor{green69}{Hsb}{120,0.6,0.9}
   \definecolor{cyan69}{Hsb}{180,0.6,0.9}
   \definecolor{magenta69}{Hsb}{300,0.6,0.9}
+  \colorlet{text1}{white}
+  \colorlet{back1}{green33}
   \colorlet{accent1}{yellow69}
   \colorlet{accent2}{green69}
   \colorlet{accent3}{red69}
@@ -287,6 +295,8 @@
   \definecolor{cyan69}{Hsb}{180,0.6,0.9}
   \definecolor{blue5x}{Hsb}{240,0.5,1}
   \definecolor{magenta6x}{Hsb}{300,0.6,1}
+  \colorlet{text1}{white}
+  \colorlet{back1}{red87}
   \colorlet{accent1}{yellow69}
   \colorlet{accent2}{green69}
   \colorlet{accent3}{magenta6x}
@@ -307,11 +317,11 @@
 }
 \let\beamer@epyt@style@do@default=\beamer@epyt@style@do@beta
 
-\colorlet{filler1}{accent1!50!normal text.bg}
-\colorlet{filler2}{accent2!50!normal text.bg}
-\colorlet{filler3}{accent3!50!normal text.bg}
-\colorlet{filler4}{accent4!50!normal text.bg}
-\colorlet{filler5}{accent5!50!normal text.bg}
+\colorlet{filler1}{accent1!50!back1}
+\colorlet{filler2}{accent2!50!back1}
+\colorlet{filler3}{accent3!50!back1}
+\colorlet{filler4}{accent4!50!back1}
+\colorlet{filler5}{accent5!50!back1}
 \setbeamercolor{title}{use=structure,fg=structure.fg}
 \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
 \setbeamercolor{section in toc}{parent=title}
