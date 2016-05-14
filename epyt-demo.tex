@@ -1,11 +1,23 @@
 % -*- coding: utf-8 -*-
 % !TEX program = xelatex
-\documentclass[12pt]{beamer}
+\documentclass[12pt,xcolor={rgb}]{beamer}
 
 \usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
 
 \usepackage{arev} % use arev sans font
 
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,xleftmargin=2em,
+  commentstyle=\color{teal},keywordstyle=\color{accent4},
+  language=[LaTeX]{TeX},morekeywords={usetheme,epytsetup}
+}
+
+\newcommand{\mylead}[1]{\textcolor{accent1}{#1}}
+\newcommand{\mybold}[1]{\textcolor{accent2}{#1}}
+\newcommand{\mywarn}[1]{\textcolor{accent3}{#1}}
 
 \begin{document}
 
@@ -24,30 +36,114 @@
 %\end{center}
 %\end{frame}
 
+\section{Black in White}
+
+\begin{frame}{Introduction}
+\mylead{Epyt} is a simple but nice theme for Beamer, with the following features: \pause
+\begin{itemize}[<+->]
+\item simple structure: with page numbers at footer, no head bar and side bar;
+\item simple templates: possible to display theorems with traditional inline style;
+\item simple colors: using only several foreground and background colors.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Getting the Theme}
+\mylead{Epyt} theme is contained in major TeX distributions.
+\begin{itemize}
+  \item In MiKTeX as \mybold{beamer-theme-epyt} package.
+  \item In TeXLive as \mybold{epyt} package.
+\end{itemize}
+You could install \mylead{epyt} in the package manager.\par\pause
+Also you could download \mylead{epyt} from \href{https://www.ctan.org/pkg/epyt}{CTAN}.
+\end{frame}
+
+\begin{frame}[fragile]{Getting Started}
+The following code is a minimal example using \mylead{epyt} theme.
+\begin{lstlisting}
+\documentclass[xcolor={rgb}]{beamer}
+\usetheme{epyt}
+\begin{document}
+  \begin{frame}{Hello}
+    Hello Beamer!
+  \end{frame}
+\end{document}
+\end{lstlisting}
+\pause
+Note that you \mywarn{should} pass rgb option to xcolor package,
+since epyt theme always uses HSB colors.
+\end{frame}
+
+\begin{frame}[fragile]{Customization}
+\mylead{Epyt} theme provides a number of styles, which can be set in loading the theme.
+\begin{lstlisting}
+\usetheme[style=gamma]{epyt}
+\end{lstlisting}
+\pause The style could also be changed in the middle of the presentation.
+\begin{lstlisting}
+\epytsetup{style=beta}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Available Styles}
+All available styles are listed here.
+\begin{description}
+  \item[alpha] white text in black background
+  \item[beta]  black text in white background
+  \item[delta] white text in blue background
+  \item[gamma] white text in green background
+  \item[zeta]  white text in red background
+\end{description}
+\pause
+And the default style is \mybold{beta}, which is what you see up to now in this presentation.
+\end{frame}
+
+\begin{frame}{Predefined Colors}
+For each style, five accent colors are predefined.
+With current style, they are the followings.
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+\pause Also five filler colors are predefined for each style.
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\pause These colors are useful when you are drawing a tikz picture.
+\end{frame}
+
 \epytsetup{style=gamma}
 
 \begin{frame}[plain]\transboxout
 \titlepage
 \end{frame}
 
-\section{Introduction}
+\section{White in Green}
 
-\begin{frame}{Introduction}
-Epyt is a simple but nice theme for Beamer, with the following features: \pause
-\begin{itemize}[<+->]
-\item simple structure: with page numbers at footer, no head bar and side bar;
-\item simple templates: displaying theorems with traditional inline style;
-\item simple colors: using only several foreground and background colors.
-\end{itemize}
+\begin{frame}{Predefined Colors}
+Five accent colors are predefined for this style.
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+Also five filler colors are predefined for this style.
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
 \end{frame}
-
-\epytsetup{style=delta}
-
-\begin{frame}[plain]\transboxout
-\titlepage
-\end{frame}
-
-\section{Enumerates}
 
 \begin{frame}[fragile]{Ordered Lists}
 A Beamer theme consists of the following four parts: \pause
@@ -59,13 +155,32 @@ A Beamer theme consists of the following four parts: \pause
 \end{enumerate}
 \end{frame}
 
-\epytsetup{style=alpha}
+\epytsetup{style=delta}
 
 \begin{frame}[plain]\transboxout
 \titlepage
 \end{frame}
 
-\section{Mathmatics}
+\section{White in Blue}
+
+\begin{frame}{Predefined Colors}
+Five accent colors are predefined for this style.
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+Also five filler colors are predefined for this style.
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\end{frame}
 
 \begin{frame}{Example}
 \begin{example}
@@ -77,6 +192,60 @@ Since $\sin 3x \sim 3x$ and $\ln(1-2x) \sim -2x$, we have
 \[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=\lim_{x\to0}\frac{3x}{-2x}=-\frac{3}{2}, \]
 and we are done.
 \end{proof}
+\end{frame}
+
+\epytsetup{style=alpha}
+
+\begin{frame}[plain]\transboxout
+\titlepage
+\end{frame}
+
+\section{White in Black}
+
+\begin{frame}{Predefined Colors}
+Five accent colors are predefined for this style.
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+Also five filler colors are predefined for this style.
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\end{frame}
+
+\epytsetup{style=zeta}
+
+\begin{frame}[plain]\transboxout
+\titlepage
+\end{frame}
+
+\section{White in Red}
+
+\begin{frame}{Predefined Colors}
+Five accent colors are predefined for this style.
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+Also five filler colors are predefined for this style.
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
 \end{frame}
 
 \end{document}

@@ -1,12 +1,26 @@
 % -*- coding: utf-8 -*-
 % !TEX program = xelatex
 
-\documentclass[14pt,notheorems]{beamer}
+\documentclass[14pt,notheorems,xcolor={rgb}]{beamer}
 
 \usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
 
+\usepackage{arev} % use arev sans font
+
 \usepackage[UTF8,noindent]{ctex}
 
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,xleftmargin=0em,
+  commentstyle=\color{teal},keywordstyle=\color{accent4},
+  language=[LaTeX]{TeX},morekeywords={usetheme,epytsetup}
+}
+
+\newcommand{\mylead}[1]{\textcolor{accent1}{#1}}
+\newcommand{\mybold}[1]{\textcolor{accent2}{#1}}
+\newcommand{\mywarn}[1]{\textcolor{accent3}{#1}}
 
 \newtheorem{theorem}{定理}
 \newtheorem{definition}[theorem]{定义}
@@ -33,21 +47,110 @@
 %\end{center}
 %\end{frame}
 
+\section{黑色文字白色背景}
+
+\begin{frame}{简要介绍}
+\mylead{Epyt} 是一个简洁美观的 Beamer 演示主题。它有这些特点：\pause
+\begin{itemize}[<+->]
+\item 结构简洁，只有包含必需元素的底栏，没有顶栏和侧栏。
+\item 内容简洁，列表环境和定理环境可以使用简单形式。
+\item 配色简洁，仅仅用到几种背景色和前景色。
+\end{itemize}
+\end{frame}
+
+\begin{frame}{下载安装}
+\mylead{Epyt} 主题已经包含在主要的 TeX 发行版中。
+\begin{itemize}
+  \item 在 MiKTeX 中作为 \mybold{beamer-theme-epyt} 宏包。
+  \item 在 TeXLive 中作为 \mybold{epyt} 宏包。
+\end{itemize}
+你可以在包管理器中安装它。当然也可以直接从
+\href{https://www.ctan.org/pkg/epyt}{CTAN} 中下载并安装。
+\end{frame}
+
+\begin{frame}[fragile]{开始使用}
+下面的代码是使用 \mylead{epyt} 主题的最简单例子。
+\begin{lstlisting}
+\documentclass[xcolor={rgb}]{beamer}
+\usetheme{epyt}
+\end{lstlisting}\pause
+如果要使用中文，可以添加 \verb ctex 宏包，例如：
+\begin{lstlisting}
+\usepacakge[UTF8,noindent]{ctex}
+\end{lstlisting}\pause
+注意你\mywarn{必须}给 xcolor 宏包传递 rgb 参数。
+这是因为 epyt 主题总是使用 HSB 颜色模型。
+\end{frame}
+
+\begin{frame}[fragile]{样式选用}
+\mylead{Epyt} 主题中包含了多种样式，可以在载入该主题时选用。
+\begin{lstlisting}
+\usetheme[style=gamma]{epyt}
+\end{lstlisting}
+\pause 在文档中间可以用下面命令切换到另一个样式。
+\begin{lstlisting}
+\epytsetup{style=beta}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{可用的样式}
+\mylead{Epyt} 主题中所有可用的样式如下所列。
+\begin{description}
+  \item[alpha] 白色文字，黑色背景
+  \item[beta]  黑色文字，白色背景
+  \item[delta] 白色文字，蓝色背景
+  \item[gamma] 白色文字，绿色背景
+  \item[zeta]  白色文字，红色背景
+\end{description}
+\pause
+其中默认样式为 \mybold{beta}。这也是此文档当前正在使用的样式。
+\end{frame}
+
+\begin{frame}{预定义的颜色}
+每种样式都预先定义了五种强调颜色。当前样式的强调颜色如下所示。
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+\pause 每种样式也预先定义了五种填充颜色，如下所示。
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\pause 用 tikz 绘图时可以使用这些预先定义的颜色。
+\end{frame}
+
 \epytsetup{style=zeta}
 
 \begin{frame}[plain]\transboxout
 \titlepage
 \end{frame}
 
-\section{简要介绍}
+\section{白色文字红色背景}
 
-\begin{frame}{简要介绍}\transdissolve
-Epyt 是一个简洁美观的 Beamer 演示文稿主题。它有这些特点：\pause
-\begin{itemize}[<+->]
-\item 结构简洁，只有包含必需元素的底栏，没有顶栏和侧栏。
-\item 内容简洁，列表环境和定理环境都使用了简单的形式。
-\item 配色简洁，仅仅用到几种背景色和前景色。
-\end{itemize}
+\begin{frame}{预定义的颜色}
+当前样式预先定义了五种强调颜色，如下所示。
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+当前样式预先定义了五种填充颜色，如下所示。
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
 \end{frame}
 
 \epytsetup{style=gamma}
@@ -56,9 +159,28 @@ Epyt 是一个简洁美观的 Beamer 演示文稿主题。它有这些特点：\
 \titlepage
 \end{frame}
 
-\section{列表环境}
+\section{白色文字绿色背景}
 
-\begin{frame}[fragile]{有序列表}\transwipe[direction=270]
+\begin{frame}{预定义的颜色}
+当前样式预先定义了五种强调颜色，如下所示。
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+当前样式预先定义了五种填充颜色，如下所示。
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\end{frame}
+
+\begin{frame}[fragile]{有序列表}
 无序列表前面已经看到，现在来看看有序列表。一个 Beamer 的主题由下列四部分组成：\pause
 \begin{enumerate}[<+->]
 \item 外部主题，用 \verb!\usebeameroutertheme! 命令；
@@ -74,18 +196,25 @@ Epyt 是一个简洁美观的 Beamer 演示文稿主题。它有这些特点：\
 \titlepage
 \end{frame}
 
-\section{数学环境}
+\section{白色文字蓝色背景}
 
-\begin{frame}{例子证明}\transglitter[direction=90]
-\begin{example}
-用等价无穷小代换证明下面极限：
-\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=-\frac{3}{2} \]
-\end{example}\pause
-\begin{proof}
-因为$\sin 3x \sim 3x$，$\ln(1-2x) \sim -2x$，所以我们有
-\[ \lim_{x\to0}\frac{\sin 3x}{\ln(1-2x)}=\lim_{x\to0}\frac{3x}{-2x}=-\frac{3}{2}, \]
-即等式成立。
-\end{proof}
+\begin{frame}{预定义的颜色}
+当前样式预先定义了五种强调颜色，如下所示。
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+当前样式预先定义了五种填充颜色，如下所示。
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
 \end{frame}
 
 \epytsetup{style=alpha}
@@ -94,23 +223,36 @@ Epyt 是一个简洁美观的 Beamer 演示文稿主题。它有这些特点：\
 \titlepage
 \end{frame}
 
-\section{使用说明}
+\section{白色文字黑色背景}
 
-\begin{frame}[fragile]{使用说明}\transblindsvertical
-\begin{itemize}
-\item 建议在演示文稿中使用大号的字体，例如：
-\begin{verbatim}
-\documentclass[14pt]{beamer}
-\usebeamertheme{epyt}
-\end{verbatim}\pause
-\item 如果要使用中文，可以用 \verb ctex 宏包，例如：
-\begin{verbatim}
-\documentclass[14pt]{beamer}
-\usebeamertheme{epyt}
-\usepacakge[UTF8,noindent]{ctex}
-\end{verbatim}\pause
-\item 在载入主题时有几种配色风格可以选择。
-\end{itemize}
+\begin{frame}{预定义的颜色}
+当前样式预先定义了五种强调颜色，如下所示。
+\begin{flushleft}
+\textcolor{accent1}{accent1}
+\textcolor{accent2}{accent2}
+\textcolor{accent3}{accent3}
+\textcolor{accent4}{accent4}
+\textcolor{accent5}{accent5}
+\end{flushleft}
+当前样式预先定义了五种填充颜色，如下所示。
+\begin{flushleft}
+\colorbox{filler1}{filler1}
+\colorbox{filler2}{filler2}
+\colorbox{filler3}{filler3}
+\colorbox{filler4}{filler4}
+\colorbox{filler5}{filler5}
+\end{flushleft}
+\end{frame}
+
+\begin{frame}{例子证明}
+\begin{example}
+证明当$x>0$时不等式$\mathrm{e}^x>1+x$成立。
+\end{example}\pause
+\begin{proof}
+令$f(x)=\mathrm{e}^x-x-1$。则当$x>0$时有
+$$f'(x)=\mathrm{e}^x-1>0.$$
+因此，当$x>0$时$f(x)>f(0)=0$。得证。
+\end{proof}
 \end{frame}
 
 \end{document}
