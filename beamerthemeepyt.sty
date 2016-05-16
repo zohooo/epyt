@@ -177,10 +177,10 @@
 \AtBeginSection[]{\frame{\sectionpage}}
 
 \defbeamertemplate{section page}{simple}{
-  \begin{center}
+  \begin{beamercolorbox}[wd=\paperwidth,center]{section in toc}%
     \usebeamerfont{section in toc}
-    \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide]
-  \end{center}
+    \insertsectionnumber.\hspace*{1ex}\insertsection%
+  \end{beamercolorbox}
 }
 \defbeamertemplate{section page}{partial}[1][left]{
   \def\epyt@temp{#1}
@@ -223,7 +223,8 @@
 
 \defbeamertemplate{subsection page}{simple}{
   \begin{beamercolorbox}[wd=\paperwidth,center]{subsection in toc}%
-  \usebeamerfont{subsection in toc}\insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
+  \usebeamerfont{subsection in toc}%
+  \insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
   \end{beamercolorbox}%
 }
 \defbeamertemplate{subsection page}{partial}[1][left]{
