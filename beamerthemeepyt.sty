@@ -172,6 +172,7 @@
     \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}%
 }{}{}
 
+\def\insertcontentsname{Table of Contents}
 \def\epyt@left{left}
 
 \AtBeginSection[]{\frame{\sectionpage}}
@@ -185,11 +186,17 @@
 \defbeamertemplate{section page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
+      \usebeamerfont{contents name}\insertcontentsname
+    \end{beamercolorbox}
+    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
+      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
+      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
     \end{varwidth}
     \end{center}
@@ -203,11 +210,17 @@
 \defbeamertemplate{section page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
+      \usebeamerfont{contents name}\insertcontentsname
+    \end{beamercolorbox}
+    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
+      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
+      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
     \end{varwidth}
     \end{center}
@@ -235,12 +248,20 @@
 \defbeamertemplate{subsection page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
-    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
-  }
+    \begin{beamercolorbox}[wd=\textwidth]{section title}%
+      \usebeamerfont{section title}%
+      \insertsectionnumber.\hspace*{1ex}\insertsection%
+    \end{beamercolorbox}
+    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
+    \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
+  }%
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
-      \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+      \hbox{\usebeamercolor[fg]{section title}\usebeamerfont{section title}%
+      \insertsectionnumber.\hspace*{1ex}\insertsection}%
+      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
+      \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
     \end{varwidth}
     \end{center}
   }
@@ -253,11 +274,17 @@
 \defbeamertemplate{subsection page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
+      \usebeamerfont{contents name}\insertcontentsname
+    \end{beamercolorbox}
+    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
+      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
+      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
     \end{varwidth}
     \end{center}
@@ -309,6 +336,7 @@
 \setbeamerfont{author}{size=\large}
 \setbeamerfont{institute}{size=\normalsize}
 \setbeamerfont{date}{size=\large}
+\setbeamerfont{contents name}{size=\Large}
 \setbeamerfont{section in toc}{size=\large}
 \setbeamerfont{subsection in toc}{size=\normalsize}
 \setbeamerfont{frametitle}{size=\large}
@@ -495,6 +523,7 @@
   \colorlet{filler5}{accent5!50!back1}
   \setbeamercolor{title}{use=structure,fg=structure.fg}
   \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
+  \setbeamercolor{contents name}{parent=title}
   \setbeamercolor{section in toc}{parent=title}
   \setbeamercolor{subsection in toc}{parent=subtitle}
   \setbeamercolor{section in toc shaded}{parent=normal text}
