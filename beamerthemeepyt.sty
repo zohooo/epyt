@@ -4,7 +4,7 @@
 
 \makeatletter
 
-\RequirePackage{tikz}
+\RequirePackage{tikz,etoolbox,varwidth}
 \usetikzlibrary{patterns}
 
 %%% presentation mode
@@ -63,9 +63,6 @@
 {%
   \noindent\usebeamerfont{frametitle}\insertframetitle\par
 }
-\setbeamertemplate{frametitle}[simple]
-
-\setbeamertemplate{navigation symbols}{}
 
 \defbeamertemplate{footline}{simple}
 {
@@ -100,7 +97,6 @@
   \end{beamercolorbox}%
   }%
 }
-\setbeamertemplate{footline}[simple]
 
 %% -------------------- inner template --------------------
 
@@ -162,13 +158,21 @@
   \end{beamercolorbox}
 }
 
-\setbeamertemplate{itemize items}[default]
-\setbeamertemplate{enumerate items}[default]
-
-\setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{subsection in toc}{}
-
 % sections and subsections
+
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+% patch for centering toc with varwidth package
+\patchcmd{\beamer@sectionintoc}{%
+  \hbox{\vbox{%
+    \def\beamer@breakhere{\\}%
+    \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}}%
+}{%
+  \hbox{%
+    \def\beamer@breakhere{}%
+    \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}%
+}{}{}
+
+\def\epyt@left{left}
 
 \AtBeginSection[]{\frame{\sectionpage}}
 
@@ -178,7 +182,42 @@
     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide]
   \end{center}
 }
-\setbeamertemplate{section page}[simple]
+\defbeamertemplate{section page}{partial}[1][left]{
+  \def\epyt@temp{#1}
+  \def\epyt@temp@left{
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+  }
+  \def\epyt@temp@center{
+    \begin{center}
+    \begin{varwidth}{\textwidth}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+    \end{varwidth}
+    \end{center}
+  }
+  \ifx\epyt@temp\epyt@left
+    \expandafter\epyt@temp@left
+  \else
+    \expandafter\epyt@temp@center
+  \fi
+}
+\defbeamertemplate{section page}{total}[1][left]{
+  \def\epyt@temp{#1}
+  \def\epyt@temp@left{
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
+  }
+  \def\epyt@temp@center{
+    \begin{center}
+    \begin{varwidth}{\textwidth}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
+    \end{varwidth}
+    \end{center}
+  }
+  \ifx\epyt@temp\epyt@left
+    \expandafter\epyt@temp@left
+  \else
+    \expandafter\epyt@temp@center
+  \fi
+}
 
 \AtBeginSubsection[]{\frame{\subsectionpage}}
 
@@ -187,7 +226,42 @@
   \usebeamerfont{subsection in toc}\insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
   \end{beamercolorbox}%
 }
-\setbeamertemplate{subsection page}[simple]
+\defbeamertemplate{subsection page}{partial}[1][left]{
+  \def\epyt@temp{#1}
+  \def\epyt@temp@left{
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+  }
+  \def\epyt@temp@center{
+    \begin{center}
+    \begin{varwidth}{\textwidth}
+      \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+    \end{varwidth}
+    \end{center}
+  }
+  \ifx\epyt@temp\epyt@left
+    \expandafter\epyt@temp@left
+  \else
+    \expandafter\epyt@temp@center
+  \fi
+}
+\defbeamertemplate{subsection page}{total}[1][left]{
+  \def\epyt@temp{#1}
+  \def\epyt@temp@left{
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+  }
+  \def\epyt@temp@center{
+    \begin{center}
+    \begin{varwidth}{\textwidth}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+    \end{varwidth}
+    \end{center}
+  }
+  \ifx\epyt@temp\epyt@left
+    \expandafter\epyt@temp@left
+  \else
+    \expandafter\epyt@temp@center
+  \fi
+}
 
 % disable block style for theorems
 
@@ -254,6 +328,8 @@
   \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[line]
   \setbeamertemplate{title page}[simple][left]
+  \setbeamertemplate{section page}[total][left]
+  \setbeamertemplate{subsection page}[total][left]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
@@ -280,6 +356,8 @@
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[line]
   \setbeamertemplate{title page}[triangle][center]
+  \setbeamertemplate{section page}[simple]
+  \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[simple]
   \setbeamertemplate{theorem end}[simple]
   \setbeamertemplate{proof begin}[simple]
@@ -313,6 +391,8 @@
   \setbeamertemplate{background canvas}[myshading][top=blue97,middle=blue77,bottom=blue97]
   \setbeamertemplate{background}[grid][step=1mm,color=blue88]
   \setbeamertemplate{title page}[simple][center]
+  \setbeamertemplate{section page}[simple]
+  \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[simple]
   \setbeamertemplate{theorem end}[simple]
   \setbeamertemplate{proof begin}[simple]
@@ -344,6 +424,8 @@
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=green53]
   \setbeamertemplate{title page}[triangle][left]
+  \setbeamertemplate{section page}[partial][left]
+  \setbeamertemplate{subsection page}[partial][left]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
@@ -374,6 +456,8 @@
   \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
   \setbeamertemplate{background}[brick]
   \setbeamertemplate{title page}[simple][center]
+  \setbeamertemplate{section page}[simple]
+  \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
@@ -391,6 +475,8 @@
   \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
   \setbeamercolor{section in toc}{parent=title}
   \setbeamercolor{subsection in toc}{parent=subtitle}
+  \setbeamercolor{section in toc shaded}{parent=normal text}
+  \setbeamercolor{subsection in toc shaded}{parent=normal text}
   \setbeamercolor{frametitle}{parent=title}
   \setbeamercolor{theoremname}{parent=subtitle}
   \setbeamercolor{proofname}{parent=subtitle}
@@ -400,6 +486,14 @@
   \setbeamercolor{block body example}{bg=gray}
   \setbeamercolor{block title alerted}{fg=accent3,bg=darkgray}
   \setbeamercolor{block body alerted}{bg=gray}
+  \setbeamertemplate{frametitle}[simple]
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{footline}[simple]
+  \setbeamertemplate{section in toc}[sections numbered]
+  \setbeamertemplate{section in toc shaded}[default][100]
+  \setbeamertemplate{subsection in toc shaded}[default][100]
+  \setbeamertemplate{itemize items}[default]
+  \setbeamertemplate{enumerate items}[default]
 }
 
 %% apply user selected theme at last
