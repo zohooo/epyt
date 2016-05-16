@@ -160,7 +160,8 @@
 
 % sections and subsections
 
-\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\def\sectionintocskip{0.5em}
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip\sectionintocskip}{}{}
 % patch for centering toc with varwidth package
 \patchcmd{\beamer@sectionintoc}{%
   \hbox{\vbox{%
