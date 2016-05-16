@@ -274,6 +274,12 @@
   \end{multicols}
 }
 
+\defbeamertemplate{subsection in toc}{triangle}{%
+  \leavevmode\leftskip=2.5em\scriptsize\raise1.25pt%
+  \rlap{\hskip-1.5em\donotcoloroutermaths$\blacktriangleright$}%
+  \normalsize\inserttocsubsection\par
+}
+
 % disable block style for theorems
 
 \defbeamertemplate{theorem begin}{simple}
@@ -505,6 +511,7 @@
   \setbeamertemplate{frametitle}[simple]
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{section in toc}[sections numbered]
+  \setbeamertemplate{subsection in toc}[triangle]
   \setbeamertemplate{section in toc shaded}[default][100]
   \setbeamertemplate{subsection in toc shaded}[default][100]
   \setbeamertemplate{itemize items}[default]
