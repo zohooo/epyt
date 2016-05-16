@@ -176,12 +176,17 @@
 \def\insertcontentsname{Table of Contents}
 \def\epyt@left{left}
 
+% create new template for section
+\defbeamertemplate{section}{simple}{%
+  \insertsectionnumber.\hspace*{1ex}\insertsection%
+}
+
 \AtBeginSection[]{\frame{\sectionpage}}
 
 \defbeamertemplate{section page}{simple}{
   \begin{beamercolorbox}[wd=\textwidth,center]{section title}%
     \usebeamerfont{section title}
-    \insertsectionnumber.\hspace*{1ex}\insertsection%
+    \usebeamertemplate{section}%
   \end{beamercolorbox}
 }
 \defbeamertemplate{section page}{partial}[1][left]{
@@ -238,12 +243,17 @@
   \end{multicols}
 }
 
+% create new template for subsection
+\defbeamertemplate{subsection}{simple}{%
+  \insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
+}
+
 \AtBeginSubsection[]{\frame{\subsectionpage}}
 
 \defbeamertemplate{subsection page}{simple}{
   \begin{beamercolorbox}[wd=\textwidth,center]{subsection title}%
   \usebeamerfont{subsection title}%
-  \insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
+  \usebeamertemplate{subsection}%
   \end{beamercolorbox}%
 }
 \defbeamertemplate{subsection page}{partial}[1][left]{
@@ -251,7 +261,7 @@
   \def\epyt@temp@left{
     \begin{beamercolorbox}[wd=\textwidth]{section title}%
       \usebeamerfont{section title}%
-      \insertsectionnumber.\hspace*{1ex}\insertsection%
+      \usebeamertemplate{section}%
     \end{beamercolorbox}
     \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
@@ -260,7 +270,7 @@
     \begin{center}
     \begin{varwidth}{\textwidth}
       \hbox{\usebeamercolor[fg]{section title}\usebeamerfont{section title}%
-      \insertsectionnumber.\hspace*{1ex}\insertsection}%
+      \usebeamertemplate{section}}%
       \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
     \end{varwidth}
@@ -540,6 +550,8 @@
   \setbeamercolor{block body alerted}{bg=gray}
   \setbeamertemplate{frametitle}[simple]
   \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{section}[simple]
+  \setbeamertemplate{subsection}[simple]
   \setbeamertemplate{section in toc}[sections numbered]
   \setbeamertemplate{subsection in toc}[triangle]
   \setbeamertemplate{section in toc shaded}[default][100]
