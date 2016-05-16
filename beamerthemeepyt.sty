@@ -4,7 +4,7 @@
 
 \makeatletter
 
-\RequirePackage{tikz,etoolbox,varwidth}
+\RequirePackage{tikz,etoolbox,varwidth,multicol}
 \usetikzlibrary{patterns}
 
 %%% presentation mode
@@ -218,6 +218,11 @@
     \expandafter\epyt@temp@center
   \fi
 }
+\defbeamertemplate{section page}{split}{
+  \begin{multicols}{2}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
+  \end{multicols}
+}
 
 \AtBeginSubsection[]{\frame{\subsectionpage}}
 
@@ -262,6 +267,11 @@
   \else
     \expandafter\epyt@temp@center
   \fi
+}
+\defbeamertemplate{subsection page}{split}{
+  \begin{multicols}{2}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+  \end{multicols}
 }
 
 % disable block style for theorems
