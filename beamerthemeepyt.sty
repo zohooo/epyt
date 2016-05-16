@@ -177,8 +177,8 @@
 \AtBeginSection[]{\frame{\sectionpage}}
 
 \defbeamertemplate{section page}{simple}{
-  \begin{beamercolorbox}[wd=\textwidth,center]{section in toc}%
-    \usebeamerfont{section in toc}
+  \begin{beamercolorbox}[wd=\textwidth,center]{section title}%
+    \usebeamerfont{section title}
     \insertsectionnumber.\hspace*{1ex}\insertsection%
   \end{beamercolorbox}
 }
@@ -227,8 +227,8 @@
 \AtBeginSubsection[]{\frame{\subsectionpage}}
 
 \defbeamertemplate{subsection page}{simple}{
-  \begin{beamercolorbox}[wd=\textwidth,center]{subsection in toc}%
-  \usebeamerfont{subsection in toc}%
+  \begin{beamercolorbox}[wd=\textwidth,center]{subsection title}%
+  \usebeamerfont{subsection title}%
   \insertsectionnumber.\insertsubsectionnumber\hspace*{2ex}\insertsubsection%
   \end{beamercolorbox}%
 }
