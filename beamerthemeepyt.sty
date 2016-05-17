@@ -100,6 +100,22 @@
 
 %% -------------------- inner template --------------------
 
+\defbeamertemplate{title separator one}{simple}{%
+  \hrule
+}
+\defbeamertemplate{title separator one}{triangle}{
+  \leavevmode\tiny
+  \leaders\hbox to 1em{\hss$\triangleright$\hss}\hfill
+}
+
+\defbeamertemplate{title separator two}{simple}{
+  \hrule
+}
+\defbeamertemplate{title separator two}{triangle}{
+  \leavevmode\tiny
+  \leaders\hbox to 1em{\hss$\triangleleft$\hss}\hfill
+}
+
 \defbeamertemplate{title page}{simple}[1][]{
   \begin{beamercolorbox}[#1]{title}
     \usebeamerfont{title}\inserttitle
@@ -110,35 +126,8 @@
       \usebeamerfont{subtitle}\insertsubtitle
     \end{beamercolorbox}
   \fi%
-  \vskip2em{\color{text1!50!back1}\hrule}\vskip2em
-  \begin{beamercolorbox}[#1]{author}
-    \usebeamerfont{author}\insertauthor
-  \end{beamercolorbox}
-  \ifx\insertinstitute\@empty\else
-  \vskip0.7em
-    \begin{beamercolorbox}[#1]{institute}
-      \usebeamerfont{institute}\insertinstitute
-    \end{beamercolorbox}
-  \fi%
-  \vskip2em{\color{text1!50!back1}\hrule}\vskip2em
-  \begin{beamercolorbox}[#1]{date}
-  \usebeamerfont{date}\insertdate
-  \end{beamercolorbox}
-}
-
-\defbeamertemplate{title page}{triangle}[1][]{
-  \begin{beamercolorbox}[#1]{title}
-    \usebeamerfont{title}\inserttitle
-  \end{beamercolorbox}
-  \ifx\insertsubtitle\@empty\else
-  \vskip0.7em
-    \begin{beamercolorbox}[#1]{subtitle}
-      \usebeamerfont{subtitle}\insertsubtitle
-    \end{beamercolorbox}
-  \fi%
   \vskip18pt{%
-    \color{text1!50!back1}\leavevmode\tiny
-    \leaders\hbox to 1em{\hss$\triangleright$\hss}\hfill
+    \usebeamercolor[fg]{title separator one}\usebeamertemplate{title separator one}%
   }\vskip18pt
   \begin{beamercolorbox}[#1]{author}
     \usebeamerfont{author}\insertauthor
@@ -150,8 +139,7 @@
     \end{beamercolorbox}
   \fi%
   \vskip18pt{%
-    \color{text1!50!back1}\leavevmode\tiny
-    \leaders\hbox to 1em{\hss$\triangleleft$\hss}\hfill
+    \usebeamercolor[fg]{title separator two}\usebeamertemplate{title separator two}%
   }\vskip18pt
   \begin{beamercolorbox}[#1]{date}
   \usebeamerfont{date}\insertdate
@@ -384,7 +372,9 @@
   \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[line]
   \setbeamertemplate{footline}[sectioning]
-  \setbeamertemplate{title page}[triangle][left]
+  \setbeamertemplate{title separator one}[triangle]
+  \setbeamertemplate{title separator two}[triangle]
+  \setbeamertemplate{title page}[simple][left]
   \setbeamertemplate{section page}[partial][left]
   \setbeamertemplate{subsection page}[partial][left]
   \setbeamertemplate{theorem begin}[default]
@@ -413,7 +403,9 @@
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[line]
   \setbeamertemplate{footline}[simple]
-  \setbeamertemplate{title page}[triangle][center]
+  \setbeamertemplate{title separator one}[triangle]
+  \setbeamertemplate{title separator two}[triangle]
+  \setbeamertemplate{title page}[simple][center]
   \setbeamertemplate{section page}[simple]
   \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[simple]
@@ -449,6 +441,8 @@
   \setbeamertemplate{background canvas}[myshading][top=blue97,middle=blue77,bottom=blue97]
   \setbeamertemplate{background}[grid][step=1mm,color=blue88]
   \setbeamertemplate{footline}[simple]
+  \setbeamertemplate{title separator one}[simple]
+  \setbeamertemplate{title separator two}[simple]
   \setbeamertemplate{title page}[simple][center]
   \setbeamertemplate{section page}[simple]
   \setbeamertemplate{subsection page}[simple]
@@ -483,7 +477,9 @@
   \setbeamertemplate{background canvas}[default]
   \setbeamertemplate{background}[grid][step=1mm,color=green53]
   \setbeamertemplate{footline}[simple]
-  \setbeamertemplate{title page}[triangle][center]
+  \setbeamertemplate{title separator one}[triangle]
+  \setbeamertemplate{title separator two}[triangle]
+  \setbeamertemplate{title page}[simple][center]
   \setbeamertemplate{section page}[simple]
   \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[default]
@@ -516,6 +512,8 @@
   \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
   \setbeamertemplate{background}[brick]
   \setbeamertemplate{footline}[sectioning]
+  \setbeamertemplate{title separator one}[simple]
+  \setbeamertemplate{title separator two}[simple]
   \setbeamertemplate{title page}[simple][left]
   \setbeamertemplate{section page}[total][left]
   \setbeamertemplate{subsection page}[total][left]
@@ -532,6 +530,8 @@
   \colorlet{filler3}{accent3!50!back1}
   \colorlet{filler4}{accent4!50!back1}
   \colorlet{filler5}{accent5!50!back1}
+  \setbeamercolor{title separator one}{fg=text1!50!back1}
+  \setbeamercolor{title separator two}{fg=text1!50!back1}
   \setbeamercolor{title}{use=structure,fg=structure.fg}
   \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
   \setbeamercolor{contents name}{parent=title}
