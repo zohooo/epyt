@@ -180,21 +180,22 @@
 \defbeamertemplate{section page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
-    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
-      \usebeamerfont{contents name}\insertcontentsname
-    \end{beamercolorbox}
-    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
-      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
-      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
     \end{varwidth}
     \end{center}
   }
+  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
+    \usebeamerfont{contents name}\insertcontentsname
+  \end{beamercolorbox}
+  \vskip10pt{%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }\vskip10pt
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
@@ -204,21 +205,22 @@
 \defbeamertemplate{section page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
-    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
-      \usebeamerfont{contents name}\insertcontentsname
-    \end{beamercolorbox}
-    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
-      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
-      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
     \end{varwidth}
     \end{center}
   }
+  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
+      \usebeamerfont{contents name}\insertcontentsname
+  \end{beamercolorbox}
+  \vskip10pt{%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }\vskip10pt
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
@@ -247,23 +249,23 @@
 \defbeamertemplate{subsection page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
-    \begin{beamercolorbox}[wd=\textwidth]{section title}%
-      \usebeamerfont{section title}%
-      \usebeamertemplate{section}%
-    \end{beamercolorbox}
-    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
   }%
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
-      \hbox{\usebeamercolor[fg]{section title}\usebeamerfont{section title}%
-      \usebeamertemplate{section}}%
-      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
     \end{varwidth}
     \end{center}
   }
+  \begin{beamercolorbox}[wd=\textwidth,#1]{section title}%
+    \usebeamerfont{section title}%
+    \usebeamertemplate{section}%
+  \end{beamercolorbox}
+  \vskip10pt{%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }\vskip10pt
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
@@ -273,21 +275,22 @@
 \defbeamertemplate{subsection page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
-    \begin{beamercolorbox}[wd=\textwidth]{contents name}%
-      \usebeamerfont{contents name}\insertcontentsname
-    \end{beamercolorbox}
-    \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
   }
   \def\epyt@temp@center{
     \begin{center}
     \begin{varwidth}{\textwidth}
-      \hbox{\usebeamercolor[fg]{contents name}\usebeamerfont{contents name}\insertcontentsname}
-      \vskip10pt{\color{text1!50!back1}\hrule}\vskip10pt
       \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
     \end{varwidth}
     \end{center}
   }
+  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
+    \usebeamerfont{contents name}\insertcontentsname
+  \end{beamercolorbox}
+  \vskip10pt{%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }\vskip10pt
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
