@@ -181,7 +181,9 @@
 \defbeamertemplate{section page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \unskip\vskip8pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+    \unskip\vskip8pt
   }
   \def\epyt@temp@center{
     \begin{center}
@@ -193,13 +195,13 @@
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
-  }\vskip8pt%
+  }%
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
     \expandafter\epyt@temp@center
   \fi
-  \unskip{%
+  {%
     \usebeamercolor[fg]{title separator two}%
     \usebeamertemplate{title separator two}%
   }
@@ -207,7 +209,9 @@
 \defbeamertemplate{section page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \unskip\vskip8pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
+    \unskip\vskip8pt
   }
   \def\epyt@temp@center{
     \begin{center}
@@ -219,13 +223,13 @@
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
-  }\vskip8pt%
+  }%
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
     \expandafter\epyt@temp@center
   \fi
-  \unskip{%
+  {%
     \usebeamercolor[fg]{title separator two}%
     \usebeamertemplate{title separator two}%
   }
@@ -252,7 +256,9 @@
 \defbeamertemplate{subsection page}{partial}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \unskip\vskip8pt
     \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
+    \unskip\vskip8pt
   }%
   \def\epyt@temp@center{
     \begin{center}
@@ -264,13 +270,13 @@
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
-  }\vskip8pt%
+  }%
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
     \expandafter\epyt@temp@center
   \fi
-  \unskip{%
+  {%
     \usebeamercolor[fg]{title separator two}%
     \usebeamertemplate{title separator two}%
   }
@@ -278,7 +284,9 @@
 \defbeamertemplate{subsection page}{total}[1][left]{
   \def\epyt@temp{#1}
   \def\epyt@temp@left{
+    \unskip\vskip8pt
     \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+    \unskip\vskip8pt
   }
   \def\epyt@temp@center{
     \begin{center}
@@ -290,13 +298,13 @@
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
-  }\vskip8pt%
+  }%
   \ifx\epyt@temp\epyt@left
     \expandafter\epyt@temp@left
   \else
     \expandafter\epyt@temp@center
   \fi
-  \unskip{%
+  {%
     \usebeamercolor[fg]{title separator two}%
     \usebeamertemplate{title separator two}%
   }
