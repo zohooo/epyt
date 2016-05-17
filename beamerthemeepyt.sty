@@ -163,7 +163,6 @@
     \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}%
 }{}{}
 
-\def\insertcontentsname{Table of Contents}
 \def\epyt@left{left}
 
 % create new template for section
@@ -191,9 +190,6 @@
     \end{varwidth}
     \end{center}
   }
-  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
-    \usebeamerfont{contents name}\insertcontentsname
-  \end{beamercolorbox}
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
@@ -203,6 +199,10 @@
   \else
     \expandafter\epyt@temp@center
   \fi
+  \unskip{%
+    \usebeamercolor[fg]{title separator two}%
+    \usebeamertemplate{title separator two}%
+  }
 }
 \defbeamertemplate{section page}{total}[1][left]{
   \def\epyt@temp{#1}
@@ -216,9 +216,6 @@
     \end{varwidth}
     \end{center}
   }
-  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
-      \usebeamerfont{contents name}\insertcontentsname
-  \end{beamercolorbox}
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
@@ -228,6 +225,10 @@
   \else
     \expandafter\epyt@temp@center
   \fi
+  \unskip{%
+    \usebeamercolor[fg]{title separator two}%
+    \usebeamertemplate{title separator two}%
+  }
 }
 \defbeamertemplate{section page}{split}{
   \begin{multicols}{2}
@@ -260,10 +261,6 @@
     \end{varwidth}
     \end{center}
   }
-  \begin{beamercolorbox}[wd=\textwidth,#1]{section title}%
-    \usebeamerfont{section title}%
-    \usebeamertemplate{section}%
-  \end{beamercolorbox}
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
@@ -273,6 +270,10 @@
   \else
     \expandafter\epyt@temp@center
   \fi
+  \unskip{%
+    \usebeamercolor[fg]{title separator two}%
+    \usebeamertemplate{title separator two}%
+  }
 }
 \defbeamertemplate{subsection page}{total}[1][left]{
   \def\epyt@temp{#1}
@@ -286,9 +287,6 @@
     \end{varwidth}
     \end{center}
   }
-  \begin{beamercolorbox}[wd=\textwidth,#1]{contents name}%
-    \usebeamerfont{contents name}\insertcontentsname
-  \end{beamercolorbox}
   {%
     \usebeamercolor[fg]{title separator one}%
     \usebeamertemplate{title separator one}%
@@ -298,6 +296,10 @@
   \else
     \expandafter\epyt@temp@center
   \fi
+  \unskip{%
+    \usebeamercolor[fg]{title separator two}%
+    \usebeamertemplate{title separator two}%
+  }
 }
 \defbeamertemplate{subsection page}{split}{
   \begin{multicols}{2}
@@ -340,7 +342,6 @@
 \setbeamerfont{author}{size=\large}
 \setbeamerfont{institute}{size=\normalsize}
 \setbeamerfont{date}{size=\large}
-\setbeamerfont{contents name}{size=\Large}
 \setbeamerfont{section in toc}{size=\large}
 \setbeamerfont{subsection in toc}{size=\normalsize}
 \setbeamerfont{frametitle}{size=\large}
@@ -539,7 +540,6 @@
   \setbeamercolor{title separator two}{fg=text1!50!back1}
   \setbeamercolor{title}{use=structure,fg=structure.fg}
   \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
-  \setbeamercolor{contents name}{parent=title}
   \setbeamercolor{section in toc}{parent=title}
   \setbeamercolor{subsection in toc}{parent=subtitle}
   \setbeamercolor{section in toc shaded}{parent=normal text}
