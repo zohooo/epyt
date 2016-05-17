@@ -101,19 +101,21 @@
 %% -------------------- inner template --------------------
 
 \defbeamertemplate{title separator one}{simple}{%
-  \hrule
+  \hbox to \hsize{\hrulefill}%
 }
 \defbeamertemplate{title separator one}{triangle}{
-  \leavevmode\tiny
-  \leaders\hbox to 1em{\hss$\triangleright$\hss}\hfill
+  \hbox to \hsize{%
+    \tiny\leaders\hbox to 1em{\hss$\triangleright$\hss}\hfill
+  }%
 }
 
 \defbeamertemplate{title separator two}{simple}{
-  \hrule
+  \hbox to \hsize{\hrulefill}%
 }
 \defbeamertemplate{title separator two}{triangle}{
-  \leavevmode\tiny
-  \leaders\hbox to 1em{\hss$\triangleleft$\hss}\hfill
+  \hbox to \hsize{%
+    \tiny\leaders\hbox to 1em{\hss$\triangleleft$\hss}\hfill
+  }%
 }
 
 \defbeamertemplate{title page}{simple}[1][]{
