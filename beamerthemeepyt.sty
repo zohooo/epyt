@@ -180,67 +180,6 @@
     \usebeamertemplate{section}%
   \end{beamercolorbox}
 }
-\defbeamertemplate{section page}{partial}[1][left]{
-  \def\epyt@temp{#1}
-  \def\epyt@temp@left{
-    \unskip\vskip8pt
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
-    \unskip\vskip8pt
-  }
-  \def\epyt@temp@center{
-    \begin{center}
-    \begin{varwidth}{\textwidth}
-      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
-    \end{varwidth}
-    \end{center}
-  }
-  {%
-    \usebeamercolor[fg]{title separator one}%
-    \usebeamertemplate{title separator one}%
-  }%
-  \ifx\epyt@temp\epyt@left
-    \expandafter\epyt@temp@left
-  \else
-    \expandafter\epyt@temp@center
-  \fi
-  {%
-    \usebeamercolor[fg]{title separator two}%
-    \usebeamertemplate{title separator two}%
-  }
-}
-\defbeamertemplate{section page}{total}[1][left]{
-  \def\epyt@temp{#1}
-  \def\epyt@temp@left{
-    \unskip\vskip8pt
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
-    \unskip\vskip8pt
-  }
-  \def\epyt@temp@center{
-    \begin{center}
-    \begin{varwidth}{\textwidth}
-      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
-    \end{varwidth}
-    \end{center}
-  }
-  {%
-    \usebeamercolor[fg]{title separator one}%
-    \usebeamertemplate{title separator one}%
-  }%
-  \ifx\epyt@temp\epyt@left
-    \expandafter\epyt@temp@left
-  \else
-    \expandafter\epyt@temp@center
-  \fi
-  {%
-    \usebeamercolor[fg]{title separator two}%
-    \usebeamertemplate{title separator two}%
-  }
-}
-\defbeamertemplate{section page}{split}{
-  \begin{multicols}{2}
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=shaded]
-  \end{multicols}
-}
 
 % create new template for subsection
 \defbeamertemplate{subsection}{simple}{%
@@ -254,67 +193,6 @@
   \usebeamerfont{subsection title}%
   \usebeamertemplate{subsection}%
   \end{beamercolorbox}%
-}
-\defbeamertemplate{subsection page}{partial}[1][left]{
-  \def\epyt@temp{#1}
-  \def\epyt@temp@left{
-    \unskip\vskip8pt
-    \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
-    \unskip\vskip8pt
-  }%
-  \def\epyt@temp@center{
-    \begin{center}
-    \begin{varwidth}{\textwidth}
-      \tableofcontents[sectionstyle=hide,subsectionstyle=show/shaded/hide]
-    \end{varwidth}
-    \end{center}
-  }
-  {%
-    \usebeamercolor[fg]{title separator one}%
-    \usebeamertemplate{title separator one}%
-  }%
-  \ifx\epyt@temp\epyt@left
-    \expandafter\epyt@temp@left
-  \else
-    \expandafter\epyt@temp@center
-  \fi
-  {%
-    \usebeamercolor[fg]{title separator two}%
-    \usebeamertemplate{title separator two}%
-  }
-}
-\defbeamertemplate{subsection page}{total}[1][left]{
-  \def\epyt@temp{#1}
-  \def\epyt@temp@left{
-    \unskip\vskip8pt
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
-    \unskip\vskip8pt
-  }
-  \def\epyt@temp@center{
-    \begin{center}
-    \begin{varwidth}{\textwidth}
-      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
-    \end{varwidth}
-    \end{center}
-  }
-  {%
-    \usebeamercolor[fg]{title separator one}%
-    \usebeamertemplate{title separator one}%
-  }%
-  \ifx\epyt@temp\epyt@left
-    \expandafter\epyt@temp@left
-  \else
-    \expandafter\epyt@temp@center
-  \fi
-  {%
-    \usebeamercolor[fg]{title separator two}%
-    \usebeamertemplate{title separator two}%
-  }
-}
-\defbeamertemplate{subsection page}{split}{
-  \begin{multicols}{2}
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
-  \end{multicols}
 }
 
 \defbeamertemplate{subsection in toc}{triangle}{%
@@ -391,8 +269,8 @@
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
   \setbeamertemplate{title page}[simple][left]
-  \setbeamertemplate{section page}[partial][left]
-  \setbeamertemplate{subsection page}[partial][left]
+  \setbeamertemplate{section page}[simple]
+  \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
@@ -531,8 +409,8 @@
   \setbeamertemplate{title separator one}[simple]
   \setbeamertemplate{title separator two}[simple]
   \setbeamertemplate{title page}[simple][left]
-  \setbeamertemplate{section page}[total][left]
-  \setbeamertemplate{subsection page}[total][left]
+  \setbeamertemplate{section page}[simple]
+  \setbeamertemplate{subsection page}[simple]
   \setbeamertemplate{theorem begin}[default]
   \setbeamertemplate{theorem end}[default]
   \setbeamertemplate{proof begin}[default]
