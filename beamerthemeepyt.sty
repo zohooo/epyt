@@ -216,8 +216,8 @@
   \definecolor{cyan69}{HTML}{5CE6E5}
   \definecolor{azure39}{HTML}{A1C3E5}
   \definecolor{magenta69}{HTML}{E55CE5}
-  \colorlet{text1}{white}
-  \colorlet{back1}{black}
+  \colorlet{fgcolor}{white}
+  \colorlet{bgcolor}{black}
   \colorlet{acolor1}{yellow69}
   \colorlet{acolor2}{green69}
   \colorlet{acolor3}{red69}
@@ -228,7 +228,7 @@
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
   \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
+  \setbeamertemplate{background}[grid][step=1mm,color=fgcolor!10!bgcolor]
   \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
@@ -247,8 +247,8 @@
   \definecolor{blue77}{HTML}{3636B2}
   \definecolor{blue99}{HTML}{1717E6}
   \definecolor{magenta88}{HTML}{CC29CC}
-  \colorlet{text1}{black}
-  \colorlet{back1}{white}
+  \colorlet{fgcolor}{black}
+  \colorlet{bgcolor}{white}
   \colorlet{acolor1}{blue99}
   \colorlet{acolor2}{cyan95}
   \colorlet{acolor3}{red99}
@@ -259,7 +259,7 @@
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
   \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
+  \setbeamertemplate{background}[grid][step=1mm,color=fgcolor!10!bgcolor]
   \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
@@ -283,8 +283,8 @@
   \definecolor{blue97}{HTML}{1212B3}
   \definecolor{magenta69}{HTML}{E55CE5}
   \definecolor{purple94}{HTML}{660A38}
-  \colorlet{text1}{white}
-  \colorlet{back1}{blue77}
+  \colorlet{fgcolor}{white}
+  \colorlet{bgcolor}{blue77}
   \colorlet{acolor1}{yellow69}
   \colorlet{acolor2}{green69}
   \colorlet{acolor3}{red69}
@@ -319,8 +319,8 @@
   \definecolor{green69}{HTML}{5CE55C}
   \definecolor{cyan69}{HTML}{5CE6E5}
   \definecolor{magenta69}{HTML}{E55CE5}
-  \colorlet{text1}{white}
-  \colorlet{back1}{green33}
+  \colorlet{fgcolor}{white}
+  \colorlet{bgcolor}{green33}
   \colorlet{acolor1}{yellow69}
   \colorlet{acolor2}{green69}
   \colorlet{acolor3}{red69}
@@ -354,8 +354,8 @@
   \definecolor{cyan69}{HTML}{5CE6E5}
   \definecolor{blue5x}{HTML}{8080FF}
   \definecolor{magenta6x}{HTML}{FF66FF}
-  \colorlet{text1}{white}
-  \colorlet{back1}{red87}
+  \colorlet{fgcolor}{white}
+  \colorlet{bgcolor}{red87}
   \colorlet{acolor1}{yellow69}
   \colorlet{acolor2}{green69}
   \colorlet{acolor3}{magenta6x}
@@ -368,7 +368,7 @@
   \setbeamercolor{navigation symbols}{bg=black}
   \setbeamercolor{navigation symbols dimmed}{fg=black}
   \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
-  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
+  \setbeamertemplate{background}[grid][step=1mm,color=fgcolor!10!bgcolor]
   \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[simple]
   \setbeamertemplate{title separator two}[simple]
@@ -383,13 +383,13 @@
 \let\beamer@epyt@style@do@default=\beamer@epyt@style@do@beta
 
 \def\beamer@epyt@style@do@common{
-  \colorlet{fcolor1}{acolor1!50!back1}
-  \colorlet{fcolor2}{acolor2!50!back1}
-  \colorlet{fcolor3}{acolor3!50!back1}
-  \colorlet{fcolor4}{acolor4!50!back1}
-  \colorlet{fcolor5}{acolor5!50!back1}
-  \setbeamercolor{title separator one}{fg=text1!50!back1}
-  \setbeamercolor{title separator two}{fg=text1!50!back1}
+  \colorlet{fcolor1}{acolor1!50!bgcolor}
+  \colorlet{fcolor2}{acolor2!50!bgcolor}
+  \colorlet{fcolor3}{acolor3!50!bgcolor}
+  \colorlet{fcolor4}{acolor4!50!bgcolor}
+  \colorlet{fcolor5}{acolor5!50!bgcolor}
+  \setbeamercolor{title separator one}{fg=fgcolor!50!bgcolor}
+  \setbeamercolor{title separator two}{fg=fgcolor!50!bgcolor}
   \setbeamercolor{title}{use=structure,fg=structure.fg}
   \setbeamercolor{subtitle}{use={structure,normal text},fg=structure.fg!90!normal text.bg}
   \setbeamercolor{section in toc}{parent=title}
