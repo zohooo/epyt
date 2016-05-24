@@ -44,23 +44,6 @@
   \pgfuseshading{epyt@backgroundshading}%
 }
 
-\defbeamertemplate{background}{brick}
-{%
-  \usebeamercolor{normal text}%
-  \begin{tikzpicture}
-  \draw[pattern=bricks, pattern color=normal text.bg!80!black]
-      (0,0) rectangle (\paperwidth-\pgflinewidth,\paperheight-\pgflinewidth);
-  \end{tikzpicture}
-}
-\defbeamertemplate{background}{line}
-{%
-  \usebeamercolor{normal text}%
-  \begin{tikzpicture}
-  \draw[pattern=horizontal lines, pattern color=normal text.bg!90!normal text.fg]
-      (0,0) rectangle (\paperwidth,\paperheight);
-  \end{tikzpicture}
-}
-
 \defbeamertemplate{frametitle}{simple}
 {%
   \noindent\usebeamerfont{frametitle}\insertframetitle\par
@@ -264,7 +247,7 @@
   \setbeamercolor{local structure}{fg=azure39}
   \setbeamercolor{footline}{bg=,fg=white}
   \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
-  \setbeamertemplate{background}[line]
+  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
   \setbeamertemplate{footline}[sectioning]
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
@@ -295,7 +278,7 @@
   \setbeamercolor{local structure}{fg=cyan95}
   \setbeamercolor{footline}{bg=blue77,fg=white}
   \setbeamertemplate{background canvas}[default]
-  \setbeamertemplate{background}[line]
+  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
   \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
@@ -404,7 +387,7 @@
   \setbeamercolor{navigation symbols}{bg=black}
   \setbeamercolor{navigation symbols dimmed}{fg=black}
   \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
-  \setbeamertemplate{background}[brick]
+  \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
   \setbeamertemplate{footline}[sectioning]
   \setbeamertemplate{title separator one}[simple]
   \setbeamertemplate{title separator two}[simple]
