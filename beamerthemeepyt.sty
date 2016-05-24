@@ -45,7 +45,13 @@
 
 \defbeamertemplate{frametitle}{simple}
 {%
-  \noindent\usebeamerfont{frametitle}\insertframetitle\par
+  \begingroup\offinterlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=\beamer@leftmargin]{frametitle}
+    \vskip6pt
+    \noindent\usebeamerfont{frametitle}\strut\insertframetitle\strut\par
+    \vskip4pt
+  \end{beamercolorbox}
+  \endgroup
 }
 
 \defbeamertemplate{footline}{simple}
