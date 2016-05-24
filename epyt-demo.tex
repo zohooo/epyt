@@ -1,6 +1,6 @@
 % -*- coding: utf-8 -*-
 % !TEX program = xelatex
-\documentclass[12pt,xcolor={rgb}]{beamer}
+\documentclass[12pt]{beamer}
 
 \usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
 
@@ -58,7 +58,7 @@ Also you could download \mylead{epyt} from \href{https://www.ctan.org/pkg/beamer
 \begin{frame}[fragile]{Getting Started}
 The following code is a minimal example using \mylead{epyt} theme.
 \begin{lstlisting}
-\documentclass[xcolor={rgb}]{beamer}
+\documentclass{beamer}
 \usetheme{epyt}
 \begin{document}
   \begin{frame}{Hello}
@@ -66,9 +66,6 @@ The following code is a minimal example using \mylead{epyt} theme.
   \end{frame}
 \end{document}
 \end{lstlisting}
-\pause
-Note that you \mywarn{should} pass rgb option to xcolor package,
-since epyt theme always uses HSB colors.
 \end{frame}
 
 \begin{frame}[fragile]{Customization}
