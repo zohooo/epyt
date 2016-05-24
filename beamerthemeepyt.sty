@@ -4,8 +4,6 @@
 
 \makeatletter
 
-\RequirePackage{tikz,etoolbox}
-
 %%% presentation mode
 
 \mode<presentation>
@@ -123,21 +121,6 @@
 }
 
 % sections and subsections
-
-\def\sectionintocskip{0.5em}
-\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip\sectionintocskip}{}{}
-% patch for centering toc with varwidth package
-\patchcmd{\beamer@sectionintoc}{%
-  \hbox{\vbox{%
-    \def\beamer@breakhere{\\}%
-    \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}}%
-}{%
-  \hbox{%
-    \def\beamer@breakhere{}%
-    \beamer@tocact{\ifnum\c@section=#1\beamer@toc@cs\else\beamer@toc@os\fi}{section in toc}}%
-}{}{}
-
-\def\epyt@left{left}
 
 % create new template for section
 \defbeamertemplate{section}{simple}{%
