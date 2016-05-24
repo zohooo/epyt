@@ -66,22 +66,6 @@
   \end{beamercolorbox}%
   }%
 }
-\defbeamertemplate{footline}{sectioning}
-{
-  \hbox{%
-  \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
-    \usebeamerfont{footline}\hspace*{\beamer@leftmargin}\insertshorttitle
-    \ifx\insertsection\@empty\else\qquad$\vartriangleright$\qquad\insertsection\fi
-    \ifx\insertsubsection\@empty\else\qquad$\vartriangleright$\qquad\insertsubsection\fi
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
-    \usebeamerfont{footline}%
-    \hyperlinkframeendprev{$\vartriangle$}
-    \Acrobatmenu{GoToPage}{\insertframenumber{}/\inserttotalframenumber}
-    \hyperlinkframestartnext{$\triangledown$}\hspace*{\beamer@rightmargin}
-  \end{beamercolorbox}%
-  }%
-}
 
 %% -------------------- inner template --------------------
 
@@ -248,7 +232,7 @@
   \setbeamercolor{footline}{bg=,fg=white}
   \setbeamertemplate{background canvas}[myshading][top=black,middle=gray1,bottom=darkgray]
   \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
-  \setbeamertemplate{footline}[sectioning]
+  \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[triangle]
   \setbeamertemplate{title separator two}[triangle]
   \setbeamertemplate{title page}[simple][left]
@@ -388,7 +372,7 @@
   \setbeamercolor{navigation symbols dimmed}{fg=black}
   \setbeamertemplate{background canvas}[myshading][top=red85,middle=red87,bottom=red85]
   \setbeamertemplate{background}[grid][step=1mm,color=text1!10!back1]
-  \setbeamertemplate{footline}[sectioning]
+  \setbeamertemplate{footline}[simple]
   \setbeamertemplate{title separator one}[simple]
   \setbeamertemplate{title separator two}[simple]
   \setbeamertemplate{title page}[simple][left]
