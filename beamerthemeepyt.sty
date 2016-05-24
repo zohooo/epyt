@@ -134,6 +134,10 @@
     \usebeamerfont{section title}
     \usebeamertemplate{section}%
   \end{beamercolorbox}
+  {%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }%
 }
 
 % create new template for subsection
@@ -148,6 +152,10 @@
   \usebeamerfont{subsection title}%
   \usebeamertemplate{subsection}%
   \end{beamercolorbox}%
+  {%
+    \usebeamercolor[fg]{title separator one}%
+    \usebeamertemplate{title separator one}%
+  }%
 }
 
 \defbeamertemplate{subsection in toc}{triangle}{%
